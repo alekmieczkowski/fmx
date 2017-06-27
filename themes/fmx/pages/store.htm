@@ -5,14 +5,14 @@ description = "store"
 
 ==
 
-{% partial "header" %}
 
 <!-- bloc-1 -->
 <div class="bloc bloc-fill-screen bgc-black d-bloc" id="bloc-1">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-12">
-				<a href="{{ 'home'|page }}" class="btn btn-d btn-lg">Home</a>
+	
+<div class="container store-nav-top">
+		<div class="row store-nav">
+			<div class="col-sm-1">
+				<a href="{{ 'home'|page }}" ><img  class="logo-img" src="{{ 'assets/images/fmx-logo-inverted.png'|theme }}"/></a>
 			</div>
 		</div>
 	</div>
@@ -23,5 +23,4 @@ description = "store"
 <a class="bloc-button btn btn-d scrollToTop" onclick="scrollToTarget('1')"><span class="fa fa-chevron-up"></span></a>
 <!-- ScrollToTop Button END-->
 
-{% partial "footer" %}
 
