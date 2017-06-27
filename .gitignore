@@ -1,0 +1,20 @@
+#folders
+bootstrap/
+config/
+modules/
+storage/
+vendor/
+artisan
+index.php
+.git
+.htaccess
+
+
+#bash scripts
+bash_scripts/
+/session-push.sh
+/session-checkout.sh
+/master-push.sh
+/master-checkout.sh
+/pull.sh
+/session-update-master.sh

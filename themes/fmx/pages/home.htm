@@ -1,0 +1,45 @@
+title = "Home"
+url = "/"
+layout = "default"
+description = "Home"
+
+==
+
+{% partial "header" %}
+
+<!--Background Particles-->
+
+<canvas id="particles"></canvas>
+
+
+
+
+<!-- bloc-0 -->
+<div class="bloc bloc-fill-screen bgc-black d-bloc" id="bloc-0">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<img src="{{ 'assets/images/fmx-logo-inverted.png'|theme }}" class="img-responsive center-block logo-header" />
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="text-center">
+									<a href="{{ 'store'|page }}" class="btn btn-d btn-lg store-button">Store</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- bloc-0 END -->
+
+     {% put scripts %}
+    <script type="text/javascript" src="{{ 'assets/javascript/ions.js' |theme}}"></script>
+{% endput %}
+
+{% partial "footer" %}
+
