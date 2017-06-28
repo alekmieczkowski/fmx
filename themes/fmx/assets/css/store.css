@@ -1,5 +1,6 @@
 .store-nav-top{
 	top:40px!important;
+	margin-top:40px;
 	background-color:black;
 	width:90vw;
 }
@@ -14,10 +15,11 @@
 
 .apparel-header{
 	margin-top:40px;
-	max-height:140px;
+	max-height:120px;
 }
 
 /*Holds front store page array of items*/
 .product-container{
 	max-width:700px;
+	background-color:black;
 }
