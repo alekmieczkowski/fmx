@@ -4,84 +4,78 @@
     {% for product in productsPagination.items()|slice(productsPagination.perPage()*(productsPagination.currentPage()-1), productsPagination.perPage()) %}
         {# start row for each 3 products  and 2 lines#}
         {% if index==0 %}
-            <div class="row item-page center-block">
+            <div class="row item-page center-block vdivide">
         {% endif %}
         {% set index = index+1 %}
 
         
-        <!--Display Item Block-->
-        {% if index < 3%}
-         {% set addSeparater = true %}
-        {% endif %}
+       
  
 
         
-        <div class="col-xs-6 col-sm-4 col-md-4 item-display-box ">
+        <div class="col-xs-6 col-sm-4 col-md-3 item-display-box  ">
 
-            <!--header and add to cart-->
+            <!--Badges and Labels-->
+
             <div class="row">
-                <!--Product Name-->
+
                 <div class="col-sm-10 col-xs-10">
-                    <h3 class="cursor-pointer ellipsis" onclick="location.href = '{{ product.url}}'">{{ product.title }}</h3>
+
                 </div>
-                <!--Other Images Click-->
-                <div class="col-sm-2 col-xs-2">
-                  
-                </div>
+
             </div>
 
-            
             <div class="text-center">
                 {% if product.getMainImage %}
                 <img src="{{ product.getMainImage.thumb(auto,300, { extension: 'png' }) }}" class="img-responsive cursor-pointer" onclick="location.href = '{{ product.url}}'" >
                 {% endif %}
             </div>
 
-            <!--Below Image-->
-            <div class="row">
+            <!--Image Overlay-->
+            <div id="item-dropdown">
 
-               
+                <div class="row">
 
-                <!--Checkout Button-->
-                <div class="col-md-3 checkout">
-                
-                {% if product.isAllowOrder %}
-                    {% if product.properties|length > 0 %}
-                        <button type="button" class="add-to-cart" class="btn btn-primary" onclick="location.href = '{{ product.url}}'"><img src="{'assets/images/store/shopping-cart-add.png' |theme}"/></button>
-                    {% else %}
-                        <a class="add-to-cart center-block text-center" data-request-data="id: {{ product.id }}" data-request="onAddToBasket"><img src="{{ 'assets/images/store/shopping-cart.png' |theme}}"/>Buy</a>
-                    {% endif %}
-                 {% endif %}
+                    <!--Zoom Button-->
+                    <div class="col-xs-3 overlay-button">
+                        <img class="overlay-button-icon" onclick="location.href = '{{ product.url}}'" src="{{ 'assets/images/store/item-icons/zoom.png' |theme}}"/>
+                    </div>
+
+
+                    <!--Buy Button-->
+                    <div class="col-xs-3 overlay-button">
+                       <a  data-request-data="id: {{ product.id }}" data-request="onAddToBasket"><img class="overlay-button-icon" src="{{ 'assets/images/store/item-icons/cart.png' |theme}}"/></a>
+                    </div>
+
+                   <!--More/Redirect Button-->
+                    <div class="col-xs-3 overlay-button">
+                        <img class="overlay-button-icon" onclick="location.href = '{{ product.url}}'" src="{{ 'assets/images/store/item-icons/more.png' |theme}}"/>
+                    </div>
+
+                           
+
                 </div>
 
-                <!--Details Button-->
-                <div class="col-md-3 details ">
-                    <img class="link-to-item-page" onclick="location.href = '{{ product.url}}'" src="{{ 'assets/images/store/question.png' |theme}}"/>
+    
+
+            </div>   
+
+             <div class="row">
+
+                <div class="col-xs-10">
+                    <!--Product Name-->
+                    <h3 class=" product-name ellipsis" onclick="location.href = '{{ product.url}}'">{{ product.title }}</h3>
+
+                    <!--Price-->
+                    <h4 class="price">{{ product.getFinalPriceFormated }}</h4>
                 </div>
 
-           
-
-       
-                <!--PRICE-->
-                <div class="col-md-3 price">
-                    <h2>
-                        {{ product.getFinalPriceFormated }}
-                    </h2>
-                </div>
-
-            </div>       
+            </div>    
         </div>  
 
         <!--End Display Item Block-->
 
-        <!--Separator-->
-        {% if addSeparater == true %}
-            {% set addSeparater = false %}
-            <div class="col-xs-1"> <img class="separator center-block text-center" src="{{ 'assets/images/store/separator.png' |theme}}"/></div>
-        {% endif %}
-
-
-        {# end row for each 3 products  2 lines#}
+       
         {% if index==3 %}
             {% set index = 0 %}
             </div>
