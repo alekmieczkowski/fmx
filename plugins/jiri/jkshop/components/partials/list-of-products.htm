@@ -4,7 +4,7 @@
     {% for product in productsPagination.items()|slice(productsPagination.perPage()*(productsPagination.currentPage()-1), productsPagination.perPage()) %}
         {# start row for each 3 products  and 2 lines#}
         {% if index==0 %}
-            <div class="row">
+            <div class="row item-page center-block">
         {% endif %}
         {% set index = index+1 %}
 
@@ -16,13 +16,13 @@
  
 
         
-        <div class="col-xs-6 col-sm-4 col-md-4 item-display-box center-block">
+        <div class="col-xs-6 col-sm-4 col-md-4 item-display-box ">
 
             <!--header and add to cart-->
             <div class="row">
                 <!--Product Name-->
                 <div class="col-sm-10 col-xs-10">
-                    <h3 class="cursor-pointer" onclick="location.href = '{{ product.url}}'">{{ product.title }}</h3>
+                    <h3 class="cursor-pointer ellipsis" onclick="location.href = '{{ product.url}}'">{{ product.title }}</h3>
                 </div>
                 <!--Other Images Click-->
                 <div class="col-sm-2 col-xs-2">
@@ -49,14 +49,14 @@
                     {% if product.properties|length > 0 %}
                         <button type="button" class="add-to-cart" class="btn btn-primary" onclick="location.href = '{{ product.url}}'"><img src="{'assets/images/store/shopping-cart-add.png' |theme}"/></button>
                     {% else %}
-                        <a class="add-to-cart" data-request-data="id: {{ product.id }}" data-request="onAddToBasket"><img src="{{ 'assets/images/store/shopping-cart.png' |theme}}"/></a>
+                        <a class="add-to-cart center-block text-center" data-request-data="id: {{ product.id }}" data-request="onAddToBasket"><img src="{{ 'assets/images/store/shopping-cart.png' |theme}}"/>Buy</a>
                     {% endif %}
                  {% endif %}
                 </div>
 
                 <!--Details Button-->
-                <div class="col-md-3">
-                    <button type="button" class="btn btn-default" onclick="location.href = '{{ product.url}}'">Detail</button>
+                <div class="col-md-3 details ">
+                    <img class="link-to-item-page" onclick="location.href = '{{ product.url}}'" src="{{ 'assets/images/store/question.png' |theme}}"/>
                 </div>
 
            
@@ -64,9 +64,9 @@
        
                 <!--PRICE-->
                 <div class="col-md-3 price">
-                    <h4>
+                    <h2>
                         {{ product.getFinalPriceFormated }}
-                    </h4>
+                    </h2>
                 </div>
 
             </div>       
@@ -76,12 +76,8 @@
 
         <!--Separator-->
         {% if addSeparater == true %}
-        {% set addSeparater = false %}
-        <div class="col-xs-1"> IMG</div>
-
-
-
-
+            {% set addSeparater = false %}
+            <div class="col-xs-1"> <img class="separator center-block text-center" src="{{ 'assets/images/store/separator.png' |theme}}"/></div>
         {% endif %}
 
 
