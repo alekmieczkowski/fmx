@@ -7,8 +7,12 @@
         {% endif %}
         {% set index = index+1 %}
         
-    
-        <div class="col-sm-3">
+        <!--Display Item Block-->
+
+ 
+
+        
+        <div class="col-sm-4 col-md-3">
             <h3 class="cursor-pointer" onclick="location.href = '{{ product.url}}'">{{ product.title }}</h3>
             <div class="product-description">{{ product.short_description ? product.short_description|raw : product.description|raw }}</div>
             <div class="text-center">
@@ -30,7 +34,11 @@
                 <button type="button" class="btn btn-default" onclick="location.href = '{{ product.url}}'">Detail</button>
             </div>
         </div>
+       
         
+
+        <!--End Display Item Block-->
+
         {# end row for each 4 products #}
         {% if index==4 %}
             {% set index = 0 %}

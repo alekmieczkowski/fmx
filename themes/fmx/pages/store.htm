@@ -2,21 +2,39 @@ title = "store"
 url = "/store"
 layout = "default"
 description = "store"
+is_hidden = 0
 
+[session]
+security = "all"
+
+[myProductsList]
+take = 20
+orderBy = "title"
+sort = "asc"
+onSaleOnly = 0
+productPage = "home"
 ==
-
-
 <!-- bloc-1 -->
-<div class="bloc bloc-fill-screen bgc-black d-bloc" id="bloc-1">
+<div class="bloc bgc-black d-bloc" id="bloc-1">
 	
-<div class="container store-nav-top">
+	<!--Nav Header-->
+	<div class="container store-nav-top">
 		<div class="row store-nav">
 			<div class="col-sm-1">
 				<a href="{{ 'home'|page }}" ><img  class="logo-img" src="{{ 'assets/images/fmx-logo-inverted.png'|theme }}"/></a>
 			</div>
 		</div>
 	</div>
+
+	<!--Apparel Header-->
+	<div class="row" id='apparel-header'>
+		<img src="{{ 'assets/images/store/apparel.gif'|theme }}" class=" center-block apparel-header" />
+	</div>
+</div>
+
+<div class="container product-container">
+	<!--Hat Selection-->
+	{% component 'myProductsList' %}
+	
 </div>
 <!-- bloc-1 END -->
-
-
