@@ -9,6 +9,10 @@
 
 }
 
+.page-container{
+	height:100vh;
+}
+
 #bloc-0{
 	overflow:hidden;
 	background-color:rgba(0,0,0,0);

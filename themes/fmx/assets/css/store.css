@@ -15,7 +15,7 @@
 
 .apparel-header{
 	margin-top:40px;
-	max-height:120px;
+	max-width:250px;
 }
 
 /*Holds front store page array of items*/
@@ -23,3 +23,28 @@
 	max-width:700px;
 	background-color:black;
 }
+
+/*individual item display area*/
+.item-display-box{
+
+	border-radius:20px;
+	border-top:solid #FFDF00 1px;
+	border-bottom:solid #FFDF00 1px;
+	
+	padding:10px;
+	background-color:rgba(255,223,0,0);
+	max-width:300px;
+	max-height:450px;
+
+}
+
+.add-to-cart{
+	margin-top: 20px;
+	margin-bottom: 10px;
+	margin-left: -10px;
+	position: absolute;
+}
+
+.cursor-pointer{ 
+	color:white;
+    }

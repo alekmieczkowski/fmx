@@ -1,46 +1,92 @@
     
 {% set index = 0 %}
+{% set addSeparater = false %}
     {% for product in productsPagination.items()|slice(productsPagination.perPage()*(productsPagination.currentPage()-1), productsPagination.perPage()) %}
-        {# start row for each 4 products #}
+        {# start row for each 3 products  and 2 lines#}
         {% if index==0 %}
             <div class="row">
         {% endif %}
         {% set index = index+1 %}
+
         
         <!--Display Item Block-->
-
+        {% if index < 3%}
+         {% set addSeparater = true %}
+        {% endif %}
  
 
         
-        <div class="col-sm-4 col-md-3">
-            <h3 class="cursor-pointer" onclick="location.href = '{{ product.url}}'">{{ product.title }}</h3>
-            <div class="product-description">{{ product.short_description ? product.short_description|raw : product.description|raw }}</div>
+        <div class="col-xs-6 col-sm-4 col-md-4 item-display-box center-block">
+
+            <!--header and add to cart-->
+            <div class="row">
+                <!--Product Name-->
+                <div class="col-sm-10 col-xs-10">
+                    <h3 class="cursor-pointer" onclick="location.href = '{{ product.url}}'">{{ product.title }}</h3>
+                </div>
+                <!--Other Images Click-->
+                <div class="col-sm-2 col-xs-2">
+                  
+                </div>
+            </div>
+
+            
             <div class="text-center">
                 {% if product.getMainImage %}
-                <img src="{{ product.getMainImage.thumb(auto,150, { extension: 'png' }) }}" class="img-responsive cursor-pointer" onclick="location.href = '{{ product.url}}'" >
+                <img src="{{ product.getMainImage.thumb(auto,300, { extension: 'png' }) }}" class="img-responsive cursor-pointer" onclick="location.href = '{{ product.url}}'" >
                 {% endif %}
             </div>
-            <h4>
-            {{ product.getFinalPriceFormated }}
-            </h4>
-            <div>
+
+            <!--Below Image-->
+            <div class="row">
+
+               
+
+                <!--Checkout Button-->
+                <div class="col-md-3 checkout">
+                
                 {% if product.isAllowOrder %}
                     {% if product.properties|length > 0 %}
-                    <button type="button" class="btn btn-primary" onclick="location.href = '{{ product.url}}'"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> More info</button>
+                        <button type="button" class="add-to-cart" class="btn btn-primary" onclick="location.href = '{{ product.url}}'"><img src="{'assets/images/store/shopping-cart-add.png' |theme}"/></button>
                     {% else %}
-                    <button type="button" class="btn btn-primary" data-request-data="id: {{ product.id }}" data-request="onAddToBasket"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</button>
+                        <a class="add-to-cart" data-request-data="id: {{ product.id }}" data-request="onAddToBasket"><img src="{{ 'assets/images/store/shopping-cart.png' |theme}}"/></a>
                     {% endif %}
-                {% endif %}
-                <button type="button" class="btn btn-default" onclick="location.href = '{{ product.url}}'">Detail</button>
-            </div>
-        </div>
+                 {% endif %}
+                </div>
+
+                <!--Details Button-->
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-default" onclick="location.href = '{{ product.url}}'">Detail</button>
+                </div>
+
+           
+
        
-        
+                <!--PRICE-->
+                <div class="col-md-3 price">
+                    <h4>
+                        {{ product.getFinalPriceFormated }}
+                    </h4>
+                </div>
+
+            </div>       
+        </div>  
 
         <!--End Display Item Block-->
 
-        {# end row for each 4 products #}
-        {% if index==4 %}
+        <!--Separator-->
+        {% if addSeparater == true %}
+        {% set addSeparater = false %}
+        <div class="col-xs-1"> IMG</div>
+
+
+
+
+        {% endif %}
+
+
+        {# end row for each 3 products  2 lines#}
+        {% if index==3 %}
             {% set index = 0 %}
             </div>
         {% endif %}
