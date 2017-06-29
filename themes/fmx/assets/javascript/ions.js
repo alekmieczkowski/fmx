@@ -1,21 +1,5 @@
   window.onload=function(){ 
 
-/*
-  	var ion = new Ion('particles', {
-        shape: 'circle',
-        density: 60,
-        color: 'rgba(255,223,0,.1)',
-        colorOpacity: [.2,.4],
-        size: [40,70],
-        gravity: [-3.5,2.5],
-        wind: [-2.5,1],
-        spawnRate: 4,
-        rotationDirection: 'clockwise',
-        rotationVelocity: [1, 2.5]
-       },
-       { canvasBackground: 'rgba(0,0,0,1)' }
-    ); 
-*/
 	//gui properties
 var props = {
     color: 'rgba(255,223,0,.1)',

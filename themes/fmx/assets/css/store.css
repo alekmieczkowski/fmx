@@ -35,7 +35,7 @@
 	*/
 	padding:10px;
 	background-color:rgba(255,223,0,0);
-	width:260px;
+	width:220px;
 	height:420px;
 	margin-bottom:20px;
 	margin:30px;
@@ -58,13 +58,13 @@
 
 /*button-overlay alignment*/
 .overlay-button{
-	margin-top:28px;
-	margin-left:14px;
+	margin-top:40px;
+	margin-left:6px;
 
 }
 /*button icon alignment*/
 .overlay-button-icon{
-	height:40px;
+	height:30px;
 }
 
 
