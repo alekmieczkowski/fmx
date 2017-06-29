@@ -28,7 +28,7 @@
 
             <div class="text-center">
                 {% if product.getMainImage %}
-                <img src="{{ product.getMainImage.thumb(auto,300, { extension: 'png' }) }}" class="img-responsive cursor-pointer" onclick="location.href = '{{ product.url}}'" >
+                <img src="{{ product.getMainImage.thumb(auto,300, { extension: 'png' }) }}" class="img-responsive cursor-pointer" " >
                 {% endif %}
             </div>
 

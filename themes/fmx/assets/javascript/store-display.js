@@ -1,11 +1,12 @@
 var itemDivTags[];
 
-function zoom(divObj){
+function getDiv(divID){
 	//get zoom button id
-	var divId = $(divObj).attr("id");
+	var targetDiv = document.getElementsByClassName("bar")[divID];
 
-	//find same id on div
-	$("#"+divId+".item-display-box ").
-	//setup enlarge script
-
+	return targetDiv;
 }
+
+
+//Go to store page
+
