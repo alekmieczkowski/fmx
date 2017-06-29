@@ -1,0 +1,16 @@
+title = "Brands List"
+url = "/brands-list/:page?"
+layout = "action-default"
+is_hidden = 0
+
+[viewBag]
+localeUrl[cz] = "/brands-list"
+
+[myBrandsList]
+pageNumber = "{{ :page }}"
+perPage = 12
+orderBy = "title"
+sort = "asc"
+brandPage = "brand-details"
+==
+{% component "myBrandsList" %}

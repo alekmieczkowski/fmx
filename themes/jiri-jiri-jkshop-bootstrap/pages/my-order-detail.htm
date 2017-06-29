@@ -1,0 +1,16 @@
+title = "My Order Detail"
+url = "/my-order-detail/:id"
+layout = "action-default"
+is_hidden = 0
+
+[myOrderDetail]
+id = "{{ :id }}"
+productPage = "product"
+
+[session]
+security = "user"
+redirect = "home"
+==
+<h1>My Order Detail</h1>
+
+{% component 'myOrderDetail' %}

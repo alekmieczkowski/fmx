@@ -1,0 +1,33 @@
+[session]
+security = "all"
+
+[myBasket]
+idElementTotalCartPrice = "#jkshop-total-basket"
+idElementWrapperBasketComponent = "#jkshop-basket-component-wrapper"
+productPage = "product"
+paymentPage = "payment"
+==
+<?php
+function onStart() {
+}
+?>
+==
+<!-- HTML start -->
+{% partial "00-html-start" %}
+
+<!-- Nav -->
+<div class="container-fluid">
+{% partial "05-navigation" %}
+</div>
+
+<div class="container-fluid">
+    {% page %}
+</div>
+
+<!-- Footer -->
+<div class="container-fluid">
+{% partial "95-footer" %}
+</div>
+
+<!-- HTML end -->
+{% partial "99-html-end" %}

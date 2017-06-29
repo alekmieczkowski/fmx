@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JK Shop Bootstrap - {{ this.page.title }}</title>
+        <meta name="author" content="Jiri Kubak">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <base href="{{ '/'|app}}/">
+
+        
+        <!--  Dynamic page meta tags -->
+        {% if  (this.page.meta_title!="")  %}<meta name="title" content="{{ this.page.meta_title }}">{% endif %}
+        {% if  (this.page.meta_description!="")  %}<meta name="description" content="{{ this.page.meta_description }}">{% endif %}
+        {% if  (this.page.meta_keywords!="")  %}<meta name="keywords" content="{{ this.page.meta_keywords }}">{% endif %}
+
+        <!--  Static page meta tags -->
+        {% if  (staticPage.page.getViewBag().property('meta_title')!="")  %}<meta name="title" content="{{ staticPage.page.getViewBag().property('meta_title') }}">{% endif %}
+        {% if  (staticPage.page.getViewBag().property('meta_description')!="")  %}<meta name="description" content="{{ staticPage.page.getViewBag().property('meta_description') }}">{% endif %}
+        {% if  (staticPage.page.getViewBag().property('meta_keywords')!="")  %}<meta name="keywords" content="{{ staticPage.page.getViewBag().property('meta_keywords') }}">{% endif %}
+        
+<!--        <link rel="icon" type="image/png" href="{{ 'assets/img/logo.png'|theme }}" />-->
+        {% styles %}
+        
+        <!-- Styles -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <!-- SmartMenus jQuery Bootstrap Addon CSS -->
+        <link rel="stylesheet" href="{{'assets/vendors/smartmenus/jquery.smartmenus.bootstrap.css'|theme}}" />
+        <!-- Add fancyBox -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" type="text/css" media="screen" />
+        <link rel="stylesheet" href="{{'assets/css/style.css'|theme}}" />        
+<!--        Fonts-->
+
+        
+        
+        
+        
+
+        <!-- Scripts -->
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+        <script src="{{ [
+            'assets/vendors/smartmenus/jquery.smartmenus.js',
+            'assets/vendors/smartmenus/jquery.smartmenus.bootstrap.js',
+            'assets/js/general.js',
+        ]|theme }}"></script>
+
+        
+        {% framework extras %}
+        {% scripts %} 
+    </head>
+    <body>

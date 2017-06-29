@@ -1,0 +1,18 @@
+title = "Products"
+url = "/products/:category/:page?"
+layout = "action-default"
+is_hidden = 0
+
+[myProducts]
+category = "{{ :category }}"
+pageNumber = "{{ :page }}"
+perPage = 20
+orderBy = "title"
+sort = "asc"
+productPage = "product"
+
+[myBreadcrumbsCategory]
+category = "{{ :category }}"
+==
+{% component "myBreadcrumbsCategory" %}
+{% component "myProducts" %}

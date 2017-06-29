@@ -1,0 +1,34 @@
+title = "Home"
+url = "/"
+layout = "action-default"
+is_hidden = 0
+
+[account]
+paramCode = "code"
+
+[myProductsList]
+take = 4
+orderBy = "title"
+sort = "asc"
+onSaleOnly = 1
+productPage = "product"
+==
+<h1>Welcome in JK Shop Demo Site</h1>
+<div>You can:
+    <ul>
+        <li>shoping as guest</li>
+        <li>shoping with user account (sign in / registration bellow)</li>
+        <li>try to finish you order - paypall is in sandbox mode</li>
+        <li>visit <a href="{{ 'backend'|app }}" target="_blank">backend</a> (demo | Demo) with all JK Shop sections</li>
+    </ul>
+</div>
+<br>
+
+{% if not user %}
+    {% component "account" %}
+{% endif %}
+
+<div>
+    <h2>On Sale</h2>
+    {% component "myProductsList" %}
+</div>

@@ -1,0 +1,9 @@
+title = "Payment"
+url = "/payment/:slug"
+layout = "action-default"
+is_hidden = 0
+
+[myPaymentGateway]
+slug = "{{ :slug }}"
+==
+{% component 'myPaymentGateway' %}

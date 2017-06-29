@@ -1,0 +1,16 @@
+title = "My Orders"
+url = "/my-orders/:page?"
+layout = "action-default"
+is_hidden = 0
+
+[myOrders]
+pageNumber = "{{ :page }}"
+perPage = 20
+myOrderPage = "my-order-detail"
+
+[session]
+security = "user"
+redirect = "home"
+==
+<h1>My Orders</h1>
+{% component 'myOrders' %}

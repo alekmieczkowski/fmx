@@ -1,0 +1,25 @@
+
+	
+	<!--Nav Header-->
+	<div class="container store-nav-top">
+
+		<div class="row store-nav">
+
+			<div class="col-xs-1">
+				<a href="{{ 'home'|page }}" ><img  class="logo-img store-nav-items" src="{{ 'assets/images/fmx-logo-inverted.png'|theme }}"/></a>
+			</div>
+			<!--Facebook Login-->
+			<div class="col-xs-1 col-xs-offset-8">
+				
+				{% component 'facebookSession::fb-sdk' %}
+   				<div class="logo-img store-nav-items">
+	    			{% if user %}
+	    			    Logged in as {{ user.name }} <a href="#" data-request="facebookSession::onLogout">Logout</a>
+	    			{% else %}
+	        			{% component 'facebookSession::login-button' %}
+	    			{% endif %}
+    			</div>
+			</div>
+
+		</div>
+	</div>

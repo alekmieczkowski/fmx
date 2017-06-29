@@ -1,0 +1,15 @@
+title = "Custom Payment Stripe Checkout"
+url = "/custom-payment-stripe-checkout/:slug"
+layout = "action-default"
+is_hidden = 0
+
+[viewBag]
+localeUrl[cz] = "/custom-payment-stripe-checkout"
+
+[myCustomPaymentStripeCheckout]
+slug = "{{ :slug }}"
+stripe_publishable_key = "pk_test_6pRNASCoBOKtIshFeQd4XMUh"
+stripe_secret_key = "sk_test_BQokikJOvBiI2HlWgH4olfQ2"
+stripe_return_url = "http://www.jkshopdemo.jiri-octobercms.com/"
+==
+{% component 'myCustomPaymentStripeCheckout' %}

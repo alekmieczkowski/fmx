@@ -1,0 +1,9 @@
+name: 'JK Shop Bootstrap'
+description: 'JK Shop Empty Bootstrap'
+author: Jiri Kubak
+homepage: 'http://jkshopdemo.jiri-octobercms.com/'
+code: jiri-jkshop-bootstrap
+require:
+    - RainLab.User
+    - RainLab.Pages
+    - Jiri.JKShop

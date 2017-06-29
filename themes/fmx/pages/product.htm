@@ -11,3 +11,12 @@ security = "all"
 slug = "{{ :slug }}"
 brandPage = "store"
 ==
+{% partial 'header' %}
+
+{% component "myBreadcrumbsProduct" %}
+{% component "myProductDetail" %}
+
+
+{% put scripts %}
+<script type="text/javascript" src="{{ 'assets/javascript/ions.js' |theme}}"></script>
+{% endput %}

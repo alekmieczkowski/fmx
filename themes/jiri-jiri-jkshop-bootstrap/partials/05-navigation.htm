@@ -1,0 +1,97 @@
+[staticMenu]
+code = "main-menu"
+
+[viewBag]
+==
+<?php
+
+function onStart() {
+    
+}
+?>
+==
+<header>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ '/'|app }}">JK Shop</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+
+                    {% for item in staticMenu.menuItems %}
+
+                    {% if item.items|length > 0 %}
+                    <li class="dropdown {{ ((item.isActive == 1) or (item.isChildActive == 1)) ? 'active' : '' }}">
+                        <a href="{{ item.url }}" {{ item.viewBag.isExternal ? 'target="_blank"' }} class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ item.title }} <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            {% for item2 in item.items %}
+
+                            {% if item2.items|length > 0 %}
+                            <li class="dropdown-submenu {{ ((item2.isActive == 1) or (item2.isChildActive == 1)) ? 'active' : '' }}">
+                                <a href="{{ item2.url }}" {{ item.viewBag.isExternal ? 'target="_blank"' }} class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ item2.title }} <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    {% for item3 in item2.items %}
+                                    <li class="{{ ((item3.isActive == 1) or (item3.isChildActive == 1)) ? 'active' : '' }}">
+                                        <a href="{{ item3.url }}" {{ item.viewBag.isExternal ? 'target="_blank"' }}>
+                                           {{ item3.title }}
+                                    </a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </li>                        
+                        {% else %}
+                        <li class="{{ ((item2.isActive == 1) or (item2.isChildActive == 1)) ? 'active' : '' }}">
+                            <a href="{{ item2.url }}" {{ item.viewBag.isExternal ? 'target="_blank"' }}>
+                               {{ item2.title }}
+                        </a>
+                    </li>
+                    {% endif %}
+
+                    {% endfor %}
+                </ul>
+            </li>                        
+            {% else %}
+            <li class="{{ ((item.isActive == 1) or (item.isChildActive == 1)) ? 'active' : '' }}">
+                <a href="{{ item.url }}" {{ item.viewBag.isExternal ? 'target="_blank"' }}>
+                   {{ item.title }}
+            </a>
+        </li>
+        {% endif %}
+        {% endfor %}
+
+
+    </ul>
+
+
+    <ul class="nav navbar-nav navbar-right">
+        {% if user %}
+        <li class="dropdown">
+            <a href="{{ 'account'|page }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href="{{ 'account'|page }}">{{ user.name }}</a></li>
+                <li><a href="{{ 'my-orders'|page }}">My Orders</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#" data-request="onLogout" data-request-data="redirect: '/'">Sign out</a></li>
+            </ul>
+        </li>
+        {% endif %}
+        <li><li><a href="{{ 'basket'|page }}"><span class="glyphicon glyphicon-shopping-cart"></span> Cart <span id="jkshop-total-basket">{{ basket.total_price_formatted }}</span></a></li></li>
+    </ul>
+
+
+</div><!-- /.navbar-collapse -->
+</div><!-- /.container-fluid -->
+</nav>    
+
+
+</header>

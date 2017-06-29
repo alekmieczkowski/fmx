@@ -1,0 +1,12 @@
+title = "Custom Payment Cash On Delivery"
+url = "/custom-payment-cash-delivery/:slug"
+layout = "action-default"
+is_hidden = 0
+
+[viewBag]
+localeUrl[cz] = "/custom-payment-cash-delivery"
+
+[myCustomPaymentCashOnDelivery]
+slug = "{{ :slug }}"
+==
+{% component 'myCustomPaymentCashOnDelivery' %}

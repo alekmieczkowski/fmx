@@ -1,0 +1,25 @@
+name: 'Main menu'
+items:
+    -
+        title: 'All categories'
+        nesting: ''
+        type: jiri-jkshop-categiries
+        url: ''
+        code: ''
+        reference: ''
+        cmsPage: products
+        replace: '1'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Brands
+        type: jiri-jkshop-brands
+        code: ''
+        cmsPage: brands
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'

@@ -1,0 +1,130 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 20.4.2016, 21:26:56
+    Author     : Jiri
+*/
+
+body {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.row-border {
+    margin: 10px 0;
+}
+
+.product-detail-list-of-images a:hover {
+    text-decoration: none;
+
+}
+.product-detail-list-of-images img {
+    max-height: 60px;
+    max-width: 60px;
+    margin: 10px 20px;
+}
+
+.product-detail h3 {
+    border-bottom: 1px solid #ccc;
+}
+.product-property-row {
+    margin: 10px 0;
+}
+
+
+.table-wrapper {
+    border: 1px solid #ccc;
+}
+.table-data-row {
+    border-top: 1px solid #ccc;
+}
+
+.table-title-row > div:not(.clearfix) {
+    padding: 10px;
+    font-weight: bold;
+}
+.table-data-row > div:not(.clearfix) {
+    padding: 10px;     
+}
+.table-data-row:nth-child(2n+1) {
+    background-color: #F1F1F1;
+}
+
+.order-status {
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 0.8em;
+}
+
+.pagination-wrapper {
+    text-align: center;
+    margin: 15px 0;
+}
+
+/* basket start */
+.basket-product-row {
+    padding: 10px 0;
+}
+.basket-content-wrapper {
+    padding: 25px 0;
+}
+.basket-product-row-info {
+    
+}
+.basket-product-row-qty {
+    padding: 13px 15px;
+}
+.basket-product-row-qty button,
+.basket-product-row-price  button{
+    font-size: 10px;
+}
+.basket-product-row-price {
+    text-align: right;
+    padding: 13px 15px;
+}
+.basket-products-total {
+    text-align: right;
+    border-top: 1px solid #ccc;
+    padding-top: 15px;
+    margin-top: 15px;
+    font-weight: bold;
+}
+.basket-products-buttons {
+    text-align: right;
+    margin-top: 25px;
+}
+.basket-products-buttons .btn-back {
+    float: left;
+}
+
+.basket-content-wrapper input[type=text],
+.basket-content-wrapper input[type=email],
+.basket-content-wrapper textarea,
+.basket-content-wrapper select{
+    width: 100%;
+    margin: 5px 0;
+    padding: 5px;
+}
+.basket-breadcrumbs {
+    margin: 5px 0;
+    padding: 5px 0;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+.basket-breadcrumbs span {
+    display: inline-block;
+    margin: 0 10px;
+}
+/* basket end */
+
+.product-detail-main-image {
+    margin-right: 10%;
+    margin-bottom: 10px;
+    max-width: 350px;
+}

@@ -1,0 +1,15 @@
+title = "Custom Payment Paypal IPN"
+url = "/custom-payment-paypal-ipn/:slug"
+layout = "action-default"
+is_hidden = 0
+
+[viewBag]
+localeUrl[cz] = "/custom-payment-paypal-ipn"
+
+[myCustomPaymentPaypalIPN]
+slug = "{{ :slug }}"
+paypal_business = "jiri-jkshop@jiri-octobercms.com"
+paypal_return_url = "http://www.jkshopdemo.jiri-octobercms.com/"
+paypal_use_sandbox = 1
+==
+{% component 'myCustomPaymentPaypalIPN' %}
