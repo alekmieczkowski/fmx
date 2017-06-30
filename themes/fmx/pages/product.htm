@@ -11,10 +11,17 @@ security = "all"
 slug = "{{ :slug }}"
 brandPage = "store"
 ==
+function onStart(){
+	$this->addCss('assets/css/product-page.css');
+}
+
+==
 {% partial 'header' %}
 
-{% component "myBreadcrumbsProduct" %}
-{% component "myProductDetail" %}
+<div class="container product-panel">
+	{% component "myBreadcrumbsProduct" %}
+	{% component "myProductDetail" %}
+</div>
 
 
 {% put scripts %}

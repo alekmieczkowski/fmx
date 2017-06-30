@@ -16,7 +16,7 @@
                 <img src="{{ product.getMainImagePath }}" class="img-responsive cursor-pointer" >
             </div>
             {% endif %}
-            <div class="product-detail-list-of-images">
+            <div class="product-detail-list-of-images" style="margin:10px;">
                 {% for image in product.images %}
                 <a href="{{ image.path }}" rel="galery1">
                     <img src="{{ image.thumb(60,60, { extension: 'png' }) }}" class="cursor-pointer" >
@@ -193,6 +193,7 @@
 
 {% endif %}
 </div>
+
 
 <script>
 $( document ).ready(function() {
