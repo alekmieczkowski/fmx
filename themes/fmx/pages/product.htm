@@ -4,17 +4,15 @@ layout = "default"
 description = "Product Page"
 is_hidden = 0
 
-[facebookSession]
-security = "all"
-
 [myProductDetail]
 slug = "{{ :slug }}"
 brandPage = "store"
 ==
+<?php
 function onStart(){
 	$this->addCss('assets/css/product-page.css');
 }
-
+?>
 ==
 {% partial 'header' %}
 

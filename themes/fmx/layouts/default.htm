@@ -1,3 +1,11 @@
+[myBasket]
+idElementTotalCartPrice = "#jkshop-total-basket"
+idElementWrapperBasketComponent = "#jkshop-basket-component-wrapper"
+productPage = "product"
+
+[facebookSession]
+security = "all"
+==
 <!doctype html>
 <html>
 <head>  
@@ -6,10 +14,13 @@
 	<meta name="description" content="{{ this.page.meta_description }}">
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
 	<link rel="shortcut icon" type="image/png" href="{{ 'assets/favicon.png'|theme }}">
+
 	
 	<link rel="stylesheet" type="text/css" href="{{ 'assets/css/bootstrap.min.css'|theme }}">
+	<link rel="stylesheet" type="text/css" href="{{ 'assets/css/bootstrap-glyphicons.css'|theme }}">
 	<link rel="stylesheet" type="text/css" href="{{ 'assets/css/home.css'|theme }}">
 	<link rel="stylesheet" type="text/css" href="{{ 'assets/css/store.css'|theme }}">
+	<link rel="stylesheet" type="text/css" href="{{ 'assets/css/header.css'|theme }}">
 	<link rel="stylesheet" type="text/css" href="{{ 'assets/style.css'|theme }}">
 	<link rel="stylesheet" href="{{ 'assets/css/font-awesome.min.css'|theme }}">
 	<link rel="stylesheet" href="{{ 'assets/css/font-awesome.min.css'|theme }}">
@@ -52,4 +63,3 @@
 
 </body>
 </html>
-
