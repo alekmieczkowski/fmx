@@ -1,10 +1,16 @@
+[facebookSession]
+security = "all"
+
 [myBasket]
 idElementTotalCartPrice = "#jkshop-total-basket"
 idElementWrapperBasketComponent = "#jkshop-basket-component-wrapper"
 productPage = "product"
-
-[facebookSession]
-security = "all"
+paymentPage = "payment"
+==
+<?php
+function onStart() {
+}
+?>
 ==
 <!doctype html>
 <html>
@@ -14,8 +20,10 @@ security = "all"
 	<meta name="description" content="{{ this.page.meta_description }}">
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
 	<link rel="shortcut icon" type="image/png" href="{{ 'assets/favicon.png'|theme }}">
+	{% styles %}
+	        <!-- SmartMenus jQuery Bootstrap Addon CSS -->
+        <link rel="stylesheet" href="{{'assets/vendors/smartmenus/jquery.smartmenus.bootstrap.css'|theme}}" />
 
-	
 	<link rel="stylesheet" type="text/css" href="{{ 'assets/css/bootstrap.min.css'|theme }}">
 	<link rel="stylesheet" type="text/css" href="{{ 'assets/css/bootstrap-glyphicons.css'|theme }}">
 	<link rel="stylesheet" type="text/css" href="{{ 'assets/css/home.css'|theme }}">
@@ -25,6 +33,11 @@ security = "all"
 	<link rel="stylesheet" href="{{ 'assets/css/font-awesome.min.css'|theme }}">
 	<link rel="stylesheet" href="{{ 'assets/css/font-awesome.min.css'|theme }}">
 
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+	<!-- Add fancyBox -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" type="text/css" media="screen" />
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
 
 
 	<script type="text/javascript" src="{{'assets/javascript/ion-min.js' | theme}}"></script>
@@ -33,7 +46,7 @@ security = "all"
 	<script type="text/javascript" src="{{'assets/javascript/store-display.js' | theme}}"></script>
 
 	
-	<script src="{{ 'assets/javascript/jquery-2.1.0.min.js'|theme }}"></script>
+	
 	<script src="{{ 'assets/javascript/bootstrap.min.js'|theme }}"></script>
 	
 

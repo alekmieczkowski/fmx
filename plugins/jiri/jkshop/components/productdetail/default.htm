@@ -41,8 +41,8 @@
 .product-detail-right{
     background-color:rgba(0,0,0,.6);
     color:white;
-    border-left: solid rgba(255,255,255,.6) 2px;
-    border-right: solid rgba(255,255,255,.6) 2px;
+    border-left: solid rgba(255,255,255,.9) 2px;
+    border-right: solid rgba(255,255,255,.7) 2px;
     border-radius:10px 2px 2px 10px;
 
 }
@@ -257,9 +257,14 @@
 
 
 <script>
-$( document ).ready(function() {
-    $("#form-add-to-basket select:first").change();
+$(document).ready(function() {
+    $(".product-detail-list-of-images a").fancybox({
+        openEffect  : 'none',
+        closeEffect : 'none'
+    });
+        
+        $(".product-detail-main-image img").click(function () {
+            $(".product-detail-list-of-images a").first().click();
+        })
 });
-    
 </script>
-    
