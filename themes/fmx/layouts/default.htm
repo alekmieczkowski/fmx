@@ -42,15 +42,12 @@ function onStart() {
 
 	<script type="text/javascript" src="{{'assets/javascript/ion-min.js' | theme}}"></script>
 
-	<!--Store Item Display-->
-	<script type="text/javascript" src="{{'assets/javascript/store-display.js' | theme}}"></script>
-
 	
 	
 	<script src="{{ 'assets/javascript/bootstrap.min.js'|theme }}"></script>
 	
 
-	{% scripts %}
+
 
 	<title>{{ this.page.title }}</title>
 
@@ -73,6 +70,7 @@ function onStart() {
 
 
 </div>
-
+{% framework extras %}
+{% scripts %} 
 </body>
 </html>
