@@ -1,0 +1,16 @@
+title = "Basket"
+url = "/basket"
+layout="default"
+is_hidden = 0
+==
+{% partial 'header' %}
+
+
+<div id='jkshop-basket-component-wrapper'>
+    {% component 'myBasket' %}
+</div>
+
+<!-- Main container END -->
+    {% put scripts %}
+    <script type="text/javascript" src="{{ 'assets/javascript/ions.js' |theme}}"></script>
+{% endput %}

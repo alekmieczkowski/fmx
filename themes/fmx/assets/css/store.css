@@ -49,7 +49,17 @@
 .overlay-button{
 	margin-top:40px;
 	margin-left:6px;
+	right:10px;
+	position:absolute;
 
+}
+
+/*add to cart button*/
+.cart-add-button {
+    margin-left: 6px;
+    right: -22px;
+    top: 224px;
+    position: absolute;
 }
 /*button icon alignment*/
 .overlay-button-icon{

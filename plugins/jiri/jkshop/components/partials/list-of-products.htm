@@ -26,9 +26,10 @@
 
             </div>
 
+            <!--Image-->
             <div class="text-center">
                 {% if product.getMainImage %}
-                <img src="{{ product.getMainImage.thumb(auto,300, { extension: 'png' }) }}" class="img-responsive cursor-pointer" " >
+                <img src="{{ product.getMainImage.thumb(auto,300, { extension: 'png' }) }}" onclick="location.href = '{{ product.url}}'"class="img-responsive cursor-pointer" " >
                 {% endif %}
             </div>
 
@@ -37,25 +38,28 @@
 
                 <div class="row">
 
-                    <!--Zoom Button-->
-                    <div class="col-xs-3 overlay-button" id="{{counter}}">
-                        <img class="overlay-button-icon" onclick="zoom(this)" src="{{ 'assets/images/store/item-icons/zoom.png' |theme}}"/>
-                    </div>
-
-
-                    <!--Buy Button-->
-                    <div class="col-xs-3 overlay-button">
-                       <a  data-request-data="id: {{ product.id }}" data-request="onAddToBasket"><img class="overlay-button-icon" src="{{ 'assets/images/store/item-icons/cart.png' |theme}}"/></a>
-                    </div>
+                 
 
                    <!--More/Redirect Button-->
-                    <div class="col-xs-3 overlay-button">
-                        <img class="overlay-button-icon" onclick="location.href = '{{ product.url}}'" src="{{ 'assets/images/store/item-icons/more.png' |theme}}"/>
+                    <div class="col-xs-3 col-xs-offset-6 overlay-button">
+                        <img class="overlay-button-icon"  src="{{ 'assets/images/store/item-icons/chain.png' |theme}}"/>
                     </div>
 
-                           
+                </div>              
 
-                </div>
+            </div>
+
+                <!--Add to cart-->
+                <div class="row">
+                    <div class="col-xs-6  col-xs-offset-3 cart-add-button">
+                        <a data-request-data="id: {{ product.id }}" data-request="onAddToBasket">
+                            <span class="glyphicon glyphicon-shopping-cart basket-sum"> Add</span>
+                        </a>
+                    </div>
+
+
+
+
 
     
 
