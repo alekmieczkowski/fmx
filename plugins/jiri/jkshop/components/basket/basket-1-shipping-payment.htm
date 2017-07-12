@@ -1,5 +1,11 @@
+<style>
+.section-header{
+    color:white;
+}
+</style>
+
 <div class="basket-content-wrapper" id="basket-content-wrapper">
-    <div class="basket-breadcrumbs">
+    <div class="basket-breadcrumbs" style="position:relative;color:white;">
         <span>1 Cart</span><span class="glyphicon glyphicon-chevron-right"></span>
         <strong>2 Shipping & Payment</strong><span class="glyphicon glyphicon-chevron-right"></span>
         <span>3 Address</span><span class="glyphicon glyphicon-chevron-right"></span>
@@ -14,7 +20,7 @@
     {% else %}
     <div class="row basket-shipping-payment-wrapper">
         <div class="col-sm-6 basket-shipping-wrapper">
-            <h2>Select Shipping Option</h2>
+            <h2 class="section-header">Select Shipping Option</h2>
             <select name="shipping_id">
                 {% for shipping in basket.shipping_options  %}
                 <option value="{{ shipping.id }}">
@@ -24,7 +30,7 @@
             </select>
         </div>
         <div class="col-sm-6 basket-payment-wrapper">
-            <h2>Select Payment Option</h2>
+            <h2 class="section-header">Select Payment Option</h2>
             {{ form_select("payment_method_id", basket.payment_method_options, basket.payment_method_id) }}
             
         </div>
