@@ -4,11 +4,16 @@ layout = "default"
 description = "Product Page"
 is_hidden = 0
 
+[viewBag]
+
 [myProductDetail]
 slug = "{{ :slug }}"
 brandPage = "home"
 
-[viewBag]
+[myBreadcrumbsProduct]
+slug = "{{ :slug }}"
+category = "{{ :category }}"
+categoryPage = "products"
 ==
 <?php
 function onStart(){
@@ -17,7 +22,7 @@ function onStart(){
 ?>
 ==
 {% partial 'header' %}
-
+{% component 'myBreadcrumbsProduct' %}
 <div class="container product-panel">
 	{% component "myBreadcrumbsProduct" %}
 	{% component "myProductDetail" %}

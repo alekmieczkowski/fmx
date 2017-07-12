@@ -1,3 +1,50 @@
+<style>
+.basket-products-total{
+    color:white;
+}
+.basket-breadcrumbs{
+    color:white!important;
+}
+div{
+    color:white;
+}
+
+.basket-divider{
+    height: 2px;
+    background-color: white;
+    position: relative;
+}
+
+/*image of product*/
+.product-image{
+    border: 2px solid white;
+    border-radius:15px;
+}
+
+.product-name{
+    border:0px;
+    font-size:24px;
+}
+.product-name:hover{
+    color:white;
+}
+.a, .price-per-unit{
+    margin-top: -14px;
+    font-size: 14px;
+    position: absolute;
+    color: rgba(255,255,255,.6);
+}
+
+.panels-right{
+    margin-top:18px;
+}
+
+/*list of all products*/
+.product-list{
+    width:600px;
+}
+</style>
+
 <div class="basket-content-wrapper" id="basket-content-wrapper">
     <div class="basket-breadcrumbs">
         <strong>1 Cart</strong><span class="glyphicon glyphicon-chevron-right"></span>
@@ -12,43 +59,61 @@
         </div>
     {% else %}
     <div class="basket-product-row-wrapper">
+
+        <!--Product Information-->
         {% for key, productJson in basket.products  %}
+        <!--divider-->
+        <hr class="basket-divider">
         <div class="row basket-product-row">
             <div class="col-sm-7 basket-product-row-info">
                 <div class="row">
+
+                    <!--Product Image-->
                     <div class="col-sm-2">
                         {% if productJson.product.images|length > 0 %}
-                        <img src="{{ productJson.product.images[0].thumb(55,55) }}" class="cursor-pointer img-responsive" onclick="location.href = '{{ productJson.product.url}}'" >
+                        <img src="{{ productJson.product.images[0].thumb(65,65) }}" class="cursor-pointer img-responsive product-image" onclick="location.href = '{{ productJson.product.url}}'" >
                         {% endif %}
                     </div>
-                    <div class="col-sm-10">
-                        <a class="cursor-pointer" onclick="location.href = '{{ productJson.product.url}}'">{{ productJson.product.title }}</a>
-                        <div>{{productJson.options_text}}</div>
+
+                    <!--Product Title-->
+                    <div class="col-sm-6">
+                        <a class="cursor-pointer product-name" onclick="location.href = '{{ productJson.product.url}}'">{{ productJson.product.title }}</a>
+                        <div>{{productJson.options_text}} <br/><a class="price-per-unit">{{ jkshopSetting.getPriceFormatted(productJson.price+productJson.current_discount) }}/ pc</a> </div>
                     </div>
                     <div class="clearfix"></div>
                 </div>
                 
             </div>
-            <div class="col-sm-2 basket-product-row-qty">
-                <strong>{{ productJson.basket_quantity }} &nbsp;</strong>
-                <div class="btn-group">
-                    <button type="button" class="btn btn-default" data-request-data="key: '{{key}}', id: {{ productJson.product.id }}, qty_operation: -1" data-request="onBasketProductChangeQunatity"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
-                    <button type="button" class="btn btn-default" data-request-data="key: '{{key}}', id: {{ productJson.product.id }}, qty_operation: 1" data-request="onBasketProductChangeQunatity"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+
+            <!--Right Side-->
+            <div class="panels-right">
+                <!-- Product Quantity +/- -->
+                <div class="col-sm-2 basket-product-row-qty">
+                    <strong>x{{ productJson.basket_quantity }} &nbsp;</strong>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default" data-request-data="key: '{{key}}', id: {{ productJson.product.id }}, qty_operation: -1" data-request="onBasketProductChangeQunatity"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
+                        <button type="button" class="btn btn-default" data-request-data="key: '{{key}}', id: {{ productJson.product.id }}, qty_operation: 1" data-request="onBasketProductChangeQunatity"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+                    </div>
+                </div>
+
+                <!--Total Price/delete button-->
+                <div class="col-sm-3 basket-product-row-price">
+                    
+                    &nbsp;&nbsp; 
+                    {% if productJson.current_discount > 0 %}
+                        (-{{ jkshopSetting.getPriceFormatted(productJson.current_discount) }}/ pc)
+                        &nbsp;&nbsp; 
+                    {% endif %}
+                    <strong>{{ jkshopSetting.getPriceFormatted(productJson.total_price)  }}</strong>
+                    &nbsp;&nbsp;
+                    <button type="button" class="btn btn-danger" data-request-data="key: '{{key}}', id: {{ productJson.product.id }}, qty_operation: -999999" data-request="onBasketProductChangeQunatity"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
                 </div>
             </div>
-            <div class="col-sm-3 basket-product-row-price">
-                {{ jkshopSetting.getPriceFormatted(productJson.price+productJson.current_discount) }}/ pc 
-                &nbsp;&nbsp; 
-                {% if productJson.current_discount > 0 %}
-                    (-{{ jkshopSetting.getPriceFormatted(productJson.current_discount) }}/ pc)
-                    &nbsp;&nbsp; 
-                {% endif %}
-                <strong>{{ jkshopSetting.getPriceFormatted(productJson.total_price)  }}</strong>
-                &nbsp;&nbsp;
-                <button type="button" class="btn btn-danger" data-request-data="key: '{{key}}', id: {{ productJson.product.id }}, qty_operation: -999999" data-request="onBasketProductChangeQunatity"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-            </div>
+
         </div>
         {% endfor  %}
+        <!--divider-->
+        <hr class="basket-divider">
     </div>
     <div class="basket-products-total">
         <div class="row">

@@ -3,11 +3,18 @@ url = "/basket"
 layout="default"
 is_hidden = 0
 ==
+<?php
+function onStart(){
+	$this->addCss('assets/css/basket.css');
+}
+?>
+==
 {% partial 'header' %}
 
-
-<div id='jkshop-basket-component-wrapper'>
-    {% component 'myBasket' %}
+<div class="basket-container center-block">
+	<div id='jkshop-basket-component-wrapper'>
+	    {% component 'myBasket' %}
+	</div>
 </div>
 
 <!-- Main container END -->

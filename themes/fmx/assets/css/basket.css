@@ -1,0 +1,8 @@
+/*Contains basket items, tax, etc*/
+.basket-container{
+	width:1000px;
+}
+
+.basket-products-total{
+	color:white!important;
+}
