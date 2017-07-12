@@ -38,10 +38,51 @@ div{
 .panels-right{
     margin-top:18px;
 }
+/*delete button*/
+.product-delete{
+    background-color:rgba(0,0,0,0);
+}
+.product-delete:hover{
+    color:#ffdf33;
+}
 
 /*list of all products*/
 .product-list{
-    width:600px;
+    width:700px;
+    position:relative;
+}
+/*tax and total*/
+.total-tax-div{
+    width:300px;
+    position:relative;
+}
+
+/*product info divs*/
+.product-img-div{
+    width:90px;
+}
+.product-name-div{
+    width:264px;
+}
+.product-quantity-div{
+    width: 148px;
+    position: relative;
+    margin-left: -10px;
+}
+.product-total-delete-div{
+    width: 140px;
+    position: relative;
+}
+.basket-continue-btn{
+    position:relative;
+    background-color:rgba(0,0,0,0);
+    color:rgba(255,255,255,.7);
+    border:2px solid rgba(255,255,255,.7);
+    border-radius:10px;
+    margin-left: 24px;
+}
+.basket-continue-btn:hover{
+    color:rgba(255,255,255,1);
 }
 </style>
 
@@ -60,61 +101,89 @@ div{
     {% else %}
     <div class="basket-product-row-wrapper">
 
-        <!--Product Information-->
-        {% for key, productJson in basket.products  %}
-        <!--divider-->
-        <hr class="basket-divider">
-        <div class="row basket-product-row">
-            <div class="col-sm-7 basket-product-row-info">
-                <div class="row">
+        <div class="col-md-8 product-list">
+            <!--Product Information-->
+            {% for key, productJson in basket.products  %}
+            <!--divider-->
+            <hr class="basket-divider">
+            <div class="row basket-product-row">
+                <div class="col-xs-7 basket-product-row-info">
+                    <div class="row">
 
-                    <!--Product Image-->
-                    <div class="col-sm-2">
-                        {% if productJson.product.images|length > 0 %}
-                        <img src="{{ productJson.product.images[0].thumb(65,65) }}" class="cursor-pointer img-responsive product-image" onclick="location.href = '{{ productJson.product.url}}'" >
-                        {% endif %}
+                        <!--Product Image-->
+                        <div class="col-xs-2 product-img-div">
+                            {% if productJson.product.images|length > 0 %}
+                            <img src="{{ productJson.product.images[0].thumb(65,65) }}" class="cursor-pointer img-responsive product-image" onclick="location.href = '{{ productJson.product.url}}'" >
+                            {% endif %}
+                        </div>
+
+                        <!--Product Title-->
+                        <div class="col-xs-6 product-name-div">
+                            <a class="cursor-pointer product-name" onclick="location.href = '{{ productJson.product.url}}'">{{ productJson.product.title }}</a>
+                            <div>{{productJson.options_text}} <br/><a class="price-per-unit">{{ jkshopSetting.getPriceFormatted(productJson.price+productJson.current_discount) }}/ pc</a> </div>
+                        </div>
+                        <div class="clearfix"></div>
                     </div>
-
-                    <!--Product Title-->
-                    <div class="col-sm-6">
-                        <a class="cursor-pointer product-name" onclick="location.href = '{{ productJson.product.url}}'">{{ productJson.product.title }}</a>
-                        <div>{{productJson.options_text}} <br/><a class="price-per-unit">{{ jkshopSetting.getPriceFormatted(productJson.price+productJson.current_discount) }}/ pc</a> </div>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-                
-            </div>
-
-            <!--Right Side-->
-            <div class="panels-right">
-                <!-- Product Quantity +/- -->
-                <div class="col-sm-2 basket-product-row-qty">
-                    <strong>x{{ productJson.basket_quantity }} &nbsp;</strong>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-default" data-request-data="key: '{{key}}', id: {{ productJson.product.id }}, qty_operation: -1" data-request="onBasketProductChangeQunatity"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
-                        <button type="button" class="btn btn-default" data-request-data="key: '{{key}}', id: {{ productJson.product.id }}, qty_operation: 1" data-request="onBasketProductChangeQunatity"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
-                    </div>
-                </div>
-
-                <!--Total Price/delete button-->
-                <div class="col-sm-3 basket-product-row-price">
                     
-                    &nbsp;&nbsp; 
-                    {% if productJson.current_discount > 0 %}
-                        (-{{ jkshopSetting.getPriceFormatted(productJson.current_discount) }}/ pc)
-                        &nbsp;&nbsp; 
-                    {% endif %}
-                    <strong>{{ jkshopSetting.getPriceFormatted(productJson.total_price)  }}</strong>
-                    &nbsp;&nbsp;
-                    <button type="button" class="btn btn-danger" data-request-data="key: '{{key}}', id: {{ productJson.product.id }}, qty_operation: -999999" data-request="onBasketProductChangeQunatity"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
                 </div>
+
+                <!--Right Side-->
+                <div class="panels-right">
+                    <!-- Product Quantity +/- -->
+                    <div class="col-xs-2 basket-product-row-qty product-quantity-div">
+                        <strong>x{{ productJson.basket_quantity }} &nbsp;</strong>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default" data-request-data="key: '{{key}}', id: {{ productJson.product.id }}, qty_operation: -1" data-request="onBasketProductChangeQunatity"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
+                            <button type="button" class="btn btn-default" data-request-data="key: '{{key}}', id: {{ productJson.product.id }}, qty_operation: 1" data-request="onBasketProductChangeQunatity"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+                        </div>
+                    </div>
+
+                    <!--Total Price/delete button-->
+                    <div class="col-xs-3 basket-product-row-price product-total-delete-div">
+                        
+                        {% if productJson.current_discount > 0 %}
+                            (-{{ jkshopSetting.getPriceFormatted(productJson.current_discount) }}/ pc)
+                            &nbsp;&nbsp; 
+                        {% endif %}
+                        <strong>{{ jkshopSetting.getPriceFormatted(productJson.total_price)  }}</strong>
+                        &nbsp;&nbsp;
+                        <button type="button" class="btn product-delete" data-request-data="key: '{{key}}', id: {{ productJson.product.id }}, qty_operation: -999999" data-request="onBasketProductChangeQunatity"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                    </div>
+                </div>
+
+            </div>
+            {% endfor  %}
+            <!--divider-->
+            <hr class="basket-divider">
+        </div> <!--end product list-->
+        <div class="col-md-3 total-tax-div">
+
+            <div class="row">
+                <div class="col-sm-5 col-sm-offset-1">Total excl. VAT</div>
+                <div class="col-sm-2">{{ basket.total_price_without_tax_formatted }}</div>
+            </div>
+            <div class="row">
+                <div class="col-sm-5 col-sm-offset-1">VAT</div>
+                <div class="col-sm-2">{{ basket.total_tax_formatted }}</div>
+            </div>
+            <div class="row">
+                <div class="col-sm-5 col-sm-offset-1">Total incl. VAT</div>
+                <div class="col-sm-2">{{ basket.total_price_formatted }}</div>
+            </div>
+            <br/>
+            <!--continue button-->
+            <div class="basket-products-buttons">
+                <button class="btn basket-continue-btn" data-request="onRunBasketShippingPayment">Continue <span class="glyphicon glyphicon-chevron-right"></span></button>
             </div>
 
         </div>
-        {% endfor  %}
-        <!--divider-->
-        <hr class="basket-divider">
+        <div class="clearfix"></div>
+
     </div>
+
+</div>
+    
+    <!--Discount-->
     <div class="basket-products-total">
         <div class="row">
             <div class="col-md-6 text-left">
@@ -164,27 +233,12 @@ div{
                         <div class="col-sm-2">-{{ jkshopSetting.getPriceFormatted(basket.total_global_discount) }}</div>
                     </div>
                 {% endif %}
-                
-                <div class="row">
-                    <div class="col-sm-4 col-sm-offset-6">Total excl. VAT</div>
-                    <div class="col-sm-2">{{ basket.total_price_without_tax_formatted }}</div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-4 col-sm-offset-6">VAT</div>
-                    <div class="col-sm-2">{{ basket.total_tax_formatted }}</div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-4 col-sm-offset-6">Total incl. VAT</div>
-                    <div class="col-sm-2">{{ basket.total_price_formatted }}</div>
-                </div>
-            </div>
-            <div class="clearfix"></div>
+
         </div>
         
     </div>
-    <div class="basket-products-buttons">
-        <button class="btn btn-primary" data-request="onRunBasketShippingPayment">Continue <span class="glyphicon glyphicon-chevron-right"></span></button>
-    </div>
+
+   
 
     {% endif %}
 </div>
