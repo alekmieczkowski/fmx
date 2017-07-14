@@ -47,16 +47,11 @@ div{
 }
 
 /*list of all products*/
-.product-list{
+
+ .product-list{
     width:700px;
     position:relative;
 }
-/*tax and total*/
-.total-tax-div{
-    width:300px;
-    position:relative;
-}
-
 /*product info divs*/
 .product-img-div{
     width:90px;
@@ -70,9 +65,121 @@ div{
     margin-left: -10px;
 }
 .product-total-delete-div{
-    width: 140px;
+    width: 150px;
     position: relative;
 }
+/*mobile*/
+@media (max-width:672px){
+    .product-list{
+    width:100vw;
+    position:relative;
+}
+.basket-divider{
+    width:100vw;
+}
+
+.product-quantity-div{
+
+    position: relative;
+    margin-left: 0px;
+}
+.product-total-delete-div{
+    width: 130px;
+    position: relative;
+    z-index:2;
+    margin-left:2px;
+}
+.basket-product-row-info{
+    width:40vw;
+}
+
+
+}
+
+/**************************/
+
+/*tax and total/ Coupons*/
+.total-tax-div{
+    top:20px;
+    width:300px;
+    position:relative;
+}
+
+.btn-coupon{
+    background-color:rgba(0,0,0,0);
+    color:#fff;
+    width:50px;
+}
+.btn-coupon:hover{
+    color:#ffdf33;
+}
+.coupon-input{
+    background-color:rgba(0,0,0,0);
+    border:0px;
+    border-bottom: 2px solid #fff;
+    color:#ffdf33;
+}
+.coupon-row{
+    width:300px;
+}
+/*mobile*/
+@media (max-width:991px){
+.total-tax-div{
+
+    left:450px;
+
+}
+
+/*discount section*/
+.basket-products-total{
+    width:450px;
+    margin-top:-100px;
+    margin-left:80px;
+    position:relative;
+}
+
+
+}
+
+@media (max-width:767px){
+    /*discount section*/
+    .coupon-row{
+        width:190px;
+    }
+    .coupon-input{
+        width:110px;
+    }
+    .btn-coupon{
+        margin-left:20px;
+    }
+    .basket-products-total{
+    width:450px;
+    margin-top:-100px;
+    margin-left:20px;
+    position:relative;
+    }
+    /*****************/
+
+}
+@media (max-width:672px){
+.total-tax-div{
+
+    left:60vw;
+
+}}
+@media (max-width:495px){
+.total-tax-div{
+
+    left:50vw;
+
+}
+
+
+}
+/******************************/
+
+
+
 .basket-continue-btn{
     position:relative;
     background-color:rgba(0,0,0,0);
@@ -84,10 +191,16 @@ div{
 .basket-continue-btn:hover{
     color:rgba(255,255,255,1);
 }
+
+.basket-product-row-wrapper{
+    margin-left:-14px;
+}
+
+
 </style>
 
 <div class="basket-content-wrapper" id="basket-content-wrapper">
-    <div class="basket-breadcrumbs">
+    <div class="basket-breadcrumbs" style="position:relative">
         <strong>1 Cart</strong><span class="glyphicon glyphicon-chevron-right"></span>
         <span>2 Shipping & Payment</span><span class="glyphicon glyphicon-chevron-right"></span>
         <span>3 Address </span><span class="glyphicon glyphicon-chevron-right"></span>
@@ -101,7 +214,7 @@ div{
     {% else %}
     <div class="basket-product-row-wrapper">
 
-        <div class="col-md-8 product-list">
+        <div class="col-md-8 col-sm-8  product-list">
             <!--Product Information-->
             {% for key, productJson in basket.products  %}
             <!--divider-->
@@ -146,7 +259,7 @@ div{
                             &nbsp;&nbsp; 
                         {% endif %}
                         <strong>{{ jkshopSetting.getPriceFormatted(productJson.total_price)  }}</strong>
-                        &nbsp;&nbsp;
+
                         <button type="button" class="btn product-delete" data-request-data="key: '{{key}}', id: {{ productJson.product.id }}, qty_operation: -999999" data-request="onBasketProductChangeQunatity"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
                     </div>
                 </div>
@@ -156,19 +269,19 @@ div{
             <!--divider-->
             <hr class="basket-divider">
         </div> <!--end product list-->
-        <div class="col-md-3 total-tax-div">
+        <div class=" col-md-3 total-tax-div">
 
             <div class="row">
-                <div class="col-sm-5 col-sm-offset-1">Total excl. VAT</div>
-                <div class="col-sm-2">{{ basket.total_price_without_tax_formatted }}</div>
+                <div class="col-xs-5 col-xs-offset-1">Total excl. VAT</div>
+                <div class="col-xs-2">{{ basket.total_price_without_tax_formatted }}</div>
             </div>
             <div class="row">
-                <div class="col-sm-5 col-sm-offset-1">VAT</div>
-                <div class="col-sm-2">{{ basket.total_tax_formatted }}</div>
+                <div class="col-xs-5 col-xs-offset-1">VAT</div>
+                <div class="col-xs-2">{{ basket.total_tax_formatted }}</div>
             </div>
             <div class="row">
-                <div class="col-sm-5 col-sm-offset-1">Total incl. VAT</div>
-                <div class="col-sm-2">{{ basket.total_price_formatted }}</div>
+                <div class="col-xs-5 col-xs-offset-1">Total incl. VAT</div>
+                <div class="col-xs-2">{{ basket.total_price_formatted }}</div>
             </div>
             <br/>
             <!--continue button-->
@@ -186,13 +299,16 @@ div{
     <!--Discount-->
     <div class="basket-products-total">
         <div class="row">
-            <div class="col-md-6 text-left">
+            <div class="col-xs-6 text-left">
                 <form class="form-horizontal" data-request="onAddCouponCode">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <input class="form-control" placeholder="Coupon Code" name="coupon_code" required="" value="{{ basket.coupon_code }}">
+                    <div class="row coupon-row">
+                        <div class="col-xs-6">
+                            <input class="form-control coupon-input" placeholder="Coupon Code" name="coupon_code" required="" value="{{ basket.coupon_code }}">
                         </div>
-                        <button type="submit" class="btn btn-primary">Apply Coupon Code</button>
+                        <div class="col-xs-2">
+                            <button type="submit" class="btn btn-coupon">Apply</button>
+                        </div>
+                        
                     </div>
                     {% if basket.coupon_wrong_code > 0 %}
                     <div class="row">
@@ -226,7 +342,7 @@ div{
                     {% endif %}
                 </form>
             </div>
-            <div class="col-md-6">
+            <div class="col-xs-6">
                 {% if basket.total_global_discount > 0 %}
                     <div class="row">
                         <div class="col-sm-4 col-sm-offset-6">Discount</div>
