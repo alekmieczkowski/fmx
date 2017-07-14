@@ -68,7 +68,57 @@ div{
     width: 150px;
     position: relative;
 }
+
+@media (max-width:971px){
+   .basket-product-row-info{
+    width:90px;
+} 
+}
+@media (max-width:767px){
+    .price-per-unit{
+    color:#ffdf33;
+    font-size:16px;
+    font-style:bold;
+}
+}
+
 /*mobile*/
+/*Product Quantity adjustment basket*/
+
+.btn-quantity-container{
+    position: relative;
+    bottom: -6px;
+    margin-left: -45px
+}
+.btn-quantity{
+    position:absolute;
+    color:white;
+    margin-top:18px;
+
+}
+.btn-quantity:hover{
+    color:#ffdf33;
+}
+.btn-quantity-number{
+    position:absolute;
+    color:white;
+    font-size:40px;
+    margin-left:-4px;
+}
+.btn-quantity-number:hover{
+    color:white;
+}
+
+/*delete button*/
+.product-delete-mobile{
+    background-color: rgba(0,0,0,0);
+    position: absolute;
+    right: 0;
+    margin-top: -16px;
+}
+.product-delete-mobile:hover{
+    color:#ffdf33;
+}
 @media (max-width:672px){
     .product-list{
     width:100vw;
@@ -90,8 +140,9 @@ div{
     margin-left:2px;
 }
 .basket-product-row-info{
-    width:40vw;
+    width:90px;
 }
+
 
 
 }
@@ -213,14 +264,14 @@ div{
         </div>
     {% else %}
     <div class="basket-product-row-wrapper">
-
-        <div class="col-md-8 col-sm-8  product-list">
+    <!--Browser-->
+        <div class="col-md-8 col-sm-8 hidden-xs product-list">
             <!--Product Information-->
             {% for key, productJson in basket.products  %}
             <!--divider-->
             <hr class="basket-divider">
             <div class="row basket-product-row">
-                <div class="col-xs-7 basket-product-row-info">
+                <div class="col-xs-7 basket-product-row-info-mobile">
                     <div class="row">
 
                         <!--Product Image-->
@@ -269,6 +320,73 @@ div{
             <!--divider-->
             <hr class="basket-divider">
         </div> <!--end product list-->
+
+
+
+        <!--Mobile-->
+        <div class="hidden-sm hidden-md  hidden-lg product-list">
+            <!--Product Information-->
+            {% for key, productJson in basket.products  %}
+            <!--divider-->
+            <hr class="basket-divider">
+            <div class="row basket-product-row">
+                <!--Image-->
+                <div class="col-xs-1 basket-product-row-info">          
+                            {% if productJson.product.images|length > 0 %}
+                            <img src="{{ productJson.product.images[0].thumb(65,65) }}" class="cursor-pointer  img-responsive product-image" onclick="location.href = '{{ productJson.product.url}}'" >
+                            {% endif %}    
+                </div>
+                <!--Product Name and Price-->
+                <div class="col-xs-6">
+                            <a class="cursor-pointer product-name" onclick="location.href = '{{ productJson.product.url}}'">{{ productJson.product.title }}</a>
+                            <div>{{productJson.options_text}} <br/>
+                                <a class="price-per-unit">
+                                   {% if productJson.current_discount > 0 %}
+                                    (-{{ jkshopSetting.getPriceFormatted(productJson.current_discount) }}/ pc)
+                                    &nbsp;&nbsp; 
+                                    {% endif %}
+                                    {{ jkshopSetting.getPriceFormatted(productJson.total_price)  }} 
+                                </a> 
+                            </div>
+                </div>
+
+
+             
+                    <!-- Product Quantity +/- -->
+                    <div class="col-xs-3 product-quantity-mobile ">
+                        
+                        <div class="row btn-quantity-container ">
+                            <div class="col-xs-2">
+                                <a type="button" class="btn-quantity glyphicon glyphicon-minus " aria-hidden="true" data-request-data="key: '{{key}}', id: {{ productJson.product.id }}, qty_operation: -1" data-request="onBasketProductChangeQunatity"></a>
+                            </div>
+                            <div class="col-xs-2">
+                                <a class="btn-quantity-number">{{ productJson.basket_quantity }}</a>
+                            </div>
+                            <div class="col-xs-2">
+                                <a type="button" class=" btn-quantity glyphicon glyphicon-plus" data-request-data="key: '{{key}}', id: {{ productJson.product.id }}, qty_operation: 1" data-request="onBasketProductChangeQunatity"  aria-hidden="true"></a>
+                            </div>
+                            
+                            
+                            
+                       </div>
+                    </div>
+
+                    <!--Total Price/delete button-->
+                    <button type="button" class="btn product-delete-mobile" data-request-data="key: '{{key}}', id: {{ productJson.product.id }}, qty_operation: -999999" data-request="onBasketProductChangeQunatity"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+
+                </div>
+
+
+            {% endfor  %}
+            <!--divider-->
+            <hr class="basket-divider">
+        </div> 
+        <!--end product list-->
+
+
+
+
+
         <div class=" col-md-3 total-tax-div">
 
             <div class="row">
