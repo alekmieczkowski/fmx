@@ -10,6 +10,23 @@
     color:white;
 }
 
+.btn{
+    background-color:rgba(0,0,0,0);
+    border:0px;
+}
+
+.btn-back{
+    color:#ffdf33;
+}
+
+.btn-back:hover{
+   background-color:rgba(0,0,0,0);
+   color:#ffdf33; 
+}
+
+.btn-continue, .btn-continue:hover{
+    color:white;
+}
 
 </style>
 
@@ -45,10 +62,10 @@
         </div>
         <div class="clearfix"></div>
     </div>
-
+    <br/>
     <div class="basket-products-buttons ">
         <button class="btn btn-default btn-back " data-request="onRunBasket"><span class="glyphicon glyphicon-chevron-left"></span>Back</button>
-        <button class="btn btn-primary" type="submit">Continue <span class="glyphicon glyphicon-chevron-right"></span></button>
+        <button class="btn btn-continue" type="submit">Continue <span class="glyphicon glyphicon-chevron-right"></span></button>
     </div>
 
     {% endif %}
