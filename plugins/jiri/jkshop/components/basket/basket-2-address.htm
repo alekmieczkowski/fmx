@@ -1,3 +1,109 @@
+<style>
+.basket-breadcrumbs{
+    position:relative;
+    color:white;
+}
+.color-white{
+    color:white;
+}
+
+.form-input{
+    background-color: rgba(0,0,0,0);
+    border: 0px;
+    border-bottom: 2px solid white;
+    border-radius: 2px;
+    margin: 2px;
+    color:#ffdf33;
+}
+
+.form-input-notes{
+   background-color: rgba(0,0,0,0);
+   border: 2px solid white;  
+
+}
+/*Placeholder color*/
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    rgba(255, 223, 51,.6);
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    rgba(255, 223, 51);
+   opacity:  .6;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    rgb(255, 223, 51);
+   opacity:  .6;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    rgba(255, 223, 51,.6);
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+   color:    rgba(255, 223, 51,.6);
+}
+
+.basket-products-buttons{
+    position:relative;
+}
+.btn{
+    background-color:rgba(0,0,0,0);
+    border:0px;
+}
+
+.btn-back{
+    color:#ffdf33;
+}
+
+.btn-back:hover{
+   background-color:rgba(0,0,0,0);
+   color:#ffdf33; 
+}
+
+.btn-continue, .btn-continue:hover{
+    color:white;
+}
+
+/*highlight effect on textbox*/
+div input[type="text"] {
+
+    -moz-transition: all .5s;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+}
+
+div input[type="text"]:focus {
+  border-color: #ffdf33;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(225, 223, 51, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(225, 223, 51, 0.6);
+}
+/*highlight effect on textbox*/
+div textarea[type="text"] {
+
+    -moz-transition: all .5s;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+}
+
+div textarea[type="text"]:focus {
+  border-color: #ffdf33;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(225, 223, 51, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(225, 223, 51, 0.6);
+} 
+/*highlight effect on textbox*/
+div input[type="email"] {
+
+    -moz-transition: all .5s;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+}
+
+div input[type="email"]:focus {
+  border-color: #ffdf33;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(225, 223, 51, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(225, 223, 51, 0.6);
+}  
+</style>
 <div class="basket-content-wrapper" id="basket-content-wrapper">
     <div class="basket-breadcrumbs">
         <span>Cart</span><span class="glyphicon glyphicon-chevron-right"></span>
@@ -13,29 +119,29 @@
         </div>
     {% else %}
     <div class="row basket-addresses-wrapper">
-        <div class="col-sm-6 basket-delivery-address-wrapper" id="delivery_address_group">
-            <h2>Delivery Address</h2>
-            <input type="text" required="true" name="ds_first_name" value="{{ basket.ds_first_name }}" placeholder="First name">
-            <input type="text" required="true" name="ds_last_name" value="{{ basket.ds_last_name }}" placeholder="Last name">
-            <input type="text" required="true" name="ds_address" value="{{ basket.ds_address }}" placeholder="Address">
-            <input type="text" name="ds_address_2" value="{{ basket.ds_address_2 }}" placeholder="Address 2">
-            <input type="text" required="true" name="ds_postcode" value="{{ basket.ds_postcode }}" placeholder="Postcode">
-            <input type="text" required="true" name="ds_city" value="{{ basket.ds_city }}" placeholder="City">
-            <input type="text" name="ds_county" value="{{ basket.ds_county }}" placeholder="County">
-            <input type="text" name="ds_country" value="{{ basket.ds_country }}" placeholder="Country">
+        <div class="col-sm-6 col-xs-12 basket-delivery-address-wrapper" id="delivery_address_group">
+            <h2 class="color-white">Delivery Address</h2>
+            <input class="form-input" type="text" required="true" name="ds_first_name" value="{{ basket.ds_first_name }}" placeholder="First name">
+            <input class="form-input" class="form-input"type="text" required="true" name="ds_last_name" value="{{ basket.ds_last_name }}" placeholder="Last name">
+            <input class="form-input" class="form-input"type="text" required="true" name="ds_address" value="{{ basket.ds_address }}" placeholder="Address">
+            <input class="form-input" type="text" name="ds_address_2" value="{{ basket.ds_address_2 }}" placeholder="Address 2">
+            <input class="form-input" type="text" required="true" name="ds_postcode" value="{{ basket.ds_postcode }}" placeholder="Postcode">
+            <input class="form-input" type="text" required="true" name="ds_city" value="{{ basket.ds_city }}" placeholder="City">
+            <input class="form-input" type="text" name="ds_county" value="{{ basket.ds_county }}" placeholder="County">
+            <input class="form-input" type="text" name="ds_country" value="{{ basket.ds_country }}" placeholder="Country">
         </div>
-        <div class="col-sm-6 basket-billing-address-wrapper" id="billing_address_group">
-            <h2>Billing Address</h2>
-            <input type="text" required="true" name="is_first_name" value="{{ basket.is_first_name }}" placeholder="First name">
-            <input type="text" required="true" name="is_last_name" value="{{ basket.is_last_name }}" placeholder="Last name">
-            <input type="text" required="true" name="is_address" value="{{ basket.is_address }}" placeholder="Address">
-            <input type="text" name="is_address_2" value="{{ basket.is_address_2 }}" placeholder="Address 2">
-            <input type="text" required="true" name="is_postcode" value="{{ basket.is_postcode }}" placeholder="Postcode">
-            <input type="text" required="true" name="is_city" value="{{ basket.is_city }}" placeholder="City">
-            <input type="text" name="is_county" value="{{ basket.is_county }}" placeholder="County">
-            <input type="text" name="is_country" value="{{ basket.is_country }}" placeholder="Country">
+        <div class="col-sm-6 col-xs-12 basket-billing-address-wrapper" id="billing_address_group">
+            <h2 class="color-white">Billing Address</h2>
+            <input class="form-input" type="text" required="true" name="is_first_name" value="{{ basket.is_first_name }}" placeholder="First name">
+            <input class="form-input" type="text" required="true" name="is_last_name" value="{{ basket.is_last_name }}" placeholder="Last name">
+            <input class="form-input" type="text" required="true" name="is_address" value="{{ basket.is_address }}" placeholder="Address">
+            <input class="form-input" type="text" name="is_address_2" value="{{ basket.is_address_2 }}" placeholder="Address 2">
+            <input class="form-input" type="text" required="true" name="is_postcode" value="{{ basket.is_postcode }}" placeholder="Postcode">
+            <input class="form-input" type="text" required="true" name="is_city" value="{{ basket.is_city }}" placeholder="City">
+            <input class="form-input" type="text" name="is_county" value="{{ basket.is_county }}" placeholder="County">
+            <input class="form-input" type="text" name="is_country" value="{{ basket.is_country }}" placeholder="Country">
             <div>
-                <label>
+                <label class="color-white" >
                     <input type="checkbox" id="copy_address"> Same as delivery address
                 </label>
             </div>
@@ -45,25 +151,25 @@
     
     <div class="row basket-email-phone-wrapper">
         <div class="col-sm-6">
-            <h2>Contact</h2>
+            <h2 class="color-white">Contact</h2>
         </div>
         <div class="col-sm-6">
-            <h2>Note</h2>
+            <h2 class="color-white">Note</h2>
         </div>
         <div class="clearfix"></div>
         
         <div class="col-sm-6">
             <div class="basket-email-wrapper">
-                <input type="email" required="true" name="contact_email" value="{{ basket.contact_email }}" placeholder="Email">
+                <input class="form-input" type="email" required="true" name="contact_email" value="{{ basket.contact_email }}" placeholder="Email">
             </div>
             
             <div class="basket-phone-wrapper">
-                <input type="text" required="true" name="contact_phone" value="{{ basket.contact_phone }}" placeholder="Phone">
+                <input class="form-input" type="text" required="true" name="contact_phone" value="{{ basket.contact_phone }}" placeholder="Phone">
             </div>
         </div>
         
         <div class="col-sm-6 basket-note-wrapper">
-            <textarea class="" name="note" rows="3" placeholder="Note">{{ basket.note }}</textarea>
+            <textarea type="text" class="form-input-notes" class="" name="note" rows="3" placeholder="Note">{{ basket.note }}</textarea>
         </div>
 
         <div class="clearfix"></div>
@@ -71,8 +177,8 @@
     
     
     <div class="basket-products-buttons">
-        <button class="btn btn-default btn-back" data-request="onRunBasketShippingPayment"><span class="glyphicon glyphicon-chevron-left"></span> Back</button>
-        <button class="btn btn-primary" type="submit">Continue <span class="glyphicon glyphicon-chevron-right"></span></button>
+        <button class="btn btn-back" data-request="onRunBasketShippingPayment"><span class="glyphicon glyphicon-chevron-left"></span> Back</button>
+        <button class="btn btn-continue" type="submit">Continue <span class="glyphicon glyphicon-chevron-right"></span></button>
     </div>
 
     {% endif %}

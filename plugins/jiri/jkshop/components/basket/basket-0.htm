@@ -32,8 +32,12 @@ div{
     margin-top: -14px;
     font-size: 14px;
     position: absolute;
-    color: rgba(255,255,255,.6);
+    color: #ffdf33;
 }
+.a, .price-per-unit:hover{
+    color:#ffdf33;
+}
+
 
 .panels-right{
     margin-top:18px;
@@ -248,6 +252,20 @@ div{
 }
 
 
+/*highlight effect on textbox*/
+div input[type="text"] {
+
+    -moz-transition: all .5s;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+}
+
+div input[type="text"]:focus {
+  border-color: #ffdf33;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(225, 223, 51, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(225, 223, 51, 0.6);
+}  
 </style>
 
 <div class="basket-content-wrapper" id="basket-content-wrapper">
@@ -421,7 +439,7 @@ div{
                 <form class="form-horizontal" data-request="onAddCouponCode">
                     <div class="row coupon-row">
                         <div class="col-xs-6">
-                            <input class="form-control coupon-input" placeholder="Coupon Code" name="coupon_code" required="" value="{{ basket.coupon_code }}">
+                            <input class="form-control coupon-input" placeholder="Coupon Code" name="coupon_code" required="" type="text" value="{{ basket.coupon_code }}">
                         </div>
                         <div class="col-xs-2">
                             <button type="submit" class="btn btn-coupon">Apply</button>
