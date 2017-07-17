@@ -15,6 +15,10 @@ div{
     position: relative;
 }
 
+.color-gold{
+    color:#ffdf33;
+}
+
 /*image of product*/
 .product-image{
     border: 2px solid white;
@@ -239,13 +243,13 @@ div{
 .basket-continue-btn{
     position:relative;
     background-color:rgba(0,0,0,0);
-    color:rgba(255,255,255,.7);
-    border:2px solid rgba(255,255,255,.7);
+    color:#ffdf33;
+    border:0px;
     border-radius:10px;
     margin-left: 24px;
 }
 .basket-continue-btn:hover{
-    color:rgba(255,255,255,1);
+    color:#ffdf33;
 }
 
 .basket-product-row-wrapper{
@@ -270,17 +274,13 @@ div input[type="text"]:focus {
 </style>
 
 <div class="basket-content-wrapper" id="basket-content-wrapper">
-<<<<<<< HEAD
+
     <div class="basket-breadcrumbs" style="position:relative;">
-        <strong >1 Cart </strong><span class="glyphicon glyphicon-chevron-right"></span>
-        <span>2 Shipping & Payment </span><span class="glyphicon glyphicon-chevron-right"></span>
-=======
-    <div class="basket-breadcrumbs" style="position:relative">
-        <strong>1 Cart</strong><span class="glyphicon glyphicon-chevron-right"></span>
-        <span>2 Shipping & Payment</span><span class="glyphicon glyphicon-chevron-right"></span>
->>>>>>> ca3c99f6854f77aac5b72282021a79d63196122d
-        <span>3 Address </span><span class="glyphicon glyphicon-chevron-right"></span>
-        <span>4 Summary </span>
+        <strong class="color-gold" >Cart </strong><span class="glyphicon glyphicon-chevron-right"></span>
+        <span>Shipping & Payment </span><span class="glyphicon glyphicon-chevron-right"></span>
+
+        <span>Address </span><span class="glyphicon glyphicon-chevron-right"></span>
+        <span>Summary </span>
     </div>
     
     {% if (basket.products|length == 0) %}
@@ -415,7 +415,6 @@ div input[type="text"]:focus {
         <div class=" col-md-3 total-tax-div">
 
             <div class="row">
-<<<<<<< HEAD
                 <div class="col-sm-5 col-sm-offset-1">Total excl. Tax</div>
                 <div class="col-sm-2">{{ basket.total_price_without_tax_formatted }}</div>
             </div>
@@ -426,18 +425,6 @@ div input[type="text"]:focus {
             <div class="row">
                 <div class="col-sm-5 col-sm-offset-1">Grand Total</div>
                 <div class="col-sm-2">{{ basket.total_price_formatted }}</div>
-=======
-                <div class="col-xs-5 col-xs-offset-1">Total excl. VAT</div>
-                <div class="col-xs-2">{{ basket.total_price_without_tax_formatted }}</div>
-            </div>
-            <div class="row">
-                <div class="col-xs-5 col-xs-offset-1">VAT</div>
-                <div class="col-xs-2">{{ basket.total_tax_formatted }}</div>
-            </div>
-            <div class="row">
-                <div class="col-xs-5 col-xs-offset-1">Total incl. VAT</div>
-                <div class="col-xs-2">{{ basket.total_price_formatted }}</div>
->>>>>>> ca3c99f6854f77aac5b72282021a79d63196122d
             </div>
             <br/>
             <!--continue button-->

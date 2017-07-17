@@ -1,9 +1,282 @@
+<style>
+
+.basket-breadcrumbs{
+    position:relative;
+    color:white;
+}
+
+.color-white{
+    color:white;
+}
+
+.color-gold{
+    color:#ffdf33;
+}
+
+
+.basket-divider{
+    height: 2px;
+    background-color: white;
+    position: relative;
+    width:800px;
+}
+
+/*image of product*/
+.product-image{
+    border: 2px solid white;
+    border-radius:15px;
+}
+
+.product-name{
+    border:0px;
+    font-size:24px;
+}
+.product-name:hover{
+    color:white;
+}
+.a, .price-per-unit{
+    margin-top: -14px;
+    font-size: 14px;
+    position: absolute;
+    color: #ffdf33;
+}
+.a, .price-per-unit:hover{
+    color:#ffdf33;
+}
+
+.product-row{
+    margin-right: 0px;
+margin-left: 0px;
+}
+.panels-right{
+    margin-top:22px;
+    position:relative;
+}
+/*delete button*/
+.product-delete{
+    background-color:rgba(0,0,0,0);
+}
+.product-delete:hover{
+    color:#ffdf33;
+}
+
+/*list of all products*/
+
+ .product-list{
+    width:700px;
+    position:relative;
+}
+/*product info divs*/
+.product-img-div{
+    width:90px;
+}
+.product-name-div{
+    width:264px;
+}
+.product-quantity-div{
+    width: 148px;
+    position: relative;
+    margin-left: -10px;
+}
+.product-total-delete-div{
+    width: 150px;
+    position: relative;
+}
+
+@media (max-width:971px){
+   .basket-product-row-info{
+    width:90px;
+} 
+}
+@media (max-width:767px){
+    .price-per-unit{
+    color:#ffdf33;
+    font-size:16px;
+    font-style:bold;
+}
+}
+
+/*mobile*/
+/*Product Quantity adjustment basket*/
+
+.btn-quantity-container{
+    position: relative;
+    bottom: -6px;
+    margin-left: -45px
+}
+.btn-quantity{
+    position:absolute;
+    color:white;
+    margin-top:18px;
+
+}
+.btn-quantity:hover{
+    color:#ffdf33;
+}
+.btn-quantity-number{
+    position:absolute;
+    color:white;
+    font-size:40px;
+    margin-left:-4px;
+}
+.btn-quantity-number:hover{
+    color:white;
+}
+
+/*delete button*/
+.product-delete-mobile{
+    background-color: rgba(0,0,0,0);
+    position: absolute;
+    right: 0;
+    margin-top: -16px;
+}
+.product-delete-mobile:hover{
+    color:#ffdf33;
+}
+@media (max-width:672px){
+    .product-list{
+    width:100vw;
+    position:relative;
+}
+.basket-divider{
+    width:100vw;
+}
+
+.product-quantity-div{
+
+    position: relative;
+    margin-left: 0px;
+}
+.product-total-delete-div{
+    width: 130px;
+    position: relative;
+    z-index:2;
+    margin-left:2px;
+}
+.basket-product-row-info{
+    width:90px;
+}
+
+
+
+}
+
+/**************************/
+
+
+/**************************/
+
+/*tax and total/ Coupons*/
+.total-tax-div{
+    top:20px;
+    width:300px;
+    position:relative;
+}
+
+.btn-coupon{
+    background-color:rgba(0,0,0,0);
+    color:#fff;
+    width:50px;
+}
+.btn-coupon:hover{
+    color:#ffdf33;
+}
+.coupon-input{
+    background-color:rgba(0,0,0,0);
+    border:0px;
+    border-bottom: 2px solid #fff;
+    color:#ffdf33;
+}
+.coupon-row{
+    width:300px;
+}
+/*mobile*/
+@media (max-width:991px){
+.total-tax-div{
+
+    left:450px;
+
+}
+
+/*discount section*/
+.basket-products-total{
+    width:450px;
+    margin-top:-100px;
+    margin-left:80px;
+    position:relative;
+}
+
+
+}
+
+@media (max-width:767px){
+    /*discount section*/
+    .coupon-row{
+        width:190px;
+    }
+    .coupon-input{
+        width:110px;
+    }
+    .btn-coupon{
+        margin-left:20px;
+    }
+    .basket-products-total{
+    width:450px;
+    margin-top:-100px;
+    margin-left:20px;
+    position:relative;
+    }
+    /*****************/
+
+}
+@media (max-width:672px){
+.total-tax-div{
+
+    left:60vw;
+
+}}
+@media (max-width:495px){
+.total-tax-div{
+
+    left:50vw;
+
+}
+
+
+}
+/******************************/
+
+/*Button stuff*/
+
+
+.btn-back{
+    color:#ffffff;
+    background-color:rgba(0,0,0,0);
+    border:0;
+}
+.btn-back:onClick{
+    color:#ffffff;
+    background-color:rgba(0,0,0,0);
+}
+
+.btn-back:hover{
+   background-color:rgba(0,0,0,0);
+   color:#ffffff; 
+}
+
+.btn-continue, .btn-continue:hover{
+    color:#ffdf33;
+    background-color:rgba(0,0,0,0);
+}
+
+</style>
+
 <div class="basket-content-wrapper" id="basket-content-wrapper">
     <div class="basket-breadcrumbs">
-        <span>1 Cart</span><span class="glyphicon glyphicon-chevron-right"></span>
-        <span>2 Shipping & Payment</span><span class="glyphicon glyphicon-chevron-right"></span>
-        <span>3 Address </span><span class="glyphicon glyphicon-chevron-right"></span>
-        <strong>4 Summary</strong>
+        <span>Cart</span><span class="glyphicon glyphicon-chevron-right"></span>
+        <span>Shipping & Payment</span><span class="glyphicon glyphicon-chevron-right"></span>
+        <span>Address </span><span class="glyphicon glyphicon-chevron-right"></span>
+        <strong class="color-gold">Summary</strong>
     </div>
     
     {% if (basket.products|length == 0) %}
@@ -12,21 +285,21 @@
         </div>
     {% else %}
     
-    <div class="row basket-summary-payment-contact-wrapper">
-        <div class="col-sm-6 basket-summary-payment-wrapper">
+    <div class="row basket-summary-payment-contact-wrapper center-block">
+        <div class="color-white col-sm-4 col-sm-offset-1 basket-summary-payment-wrapper">
             <h2>Payment method</h2>
             {{ basket.payment_method }}
         </div>
-        <div class="col-sm-6 basket-summary-contact-wrapper">
-            <h2>Contact</h2>
+        <div class=" color-white col-sm-4 col-sm-offset-2 basket-summary-contact-wrapper">
+            <h2 class="">Contact</h2>
             {{ basket.contact_email }}<br>
             {{ basket.contact_phone }}
         </div>
         <div class="clearfix"></div>
     </div>    
     
-    <div class="row  basket-summary-addresses-wrapper">
-        <div class="col-sm-6" id="delivery_address_group">
+    <div class="row  basket-summary-addresses-wrapper center-block">
+        <div class="col-sm-4 col-sm-offset-1 color-white" id="delivery_address_group">
             <h2>Delivery address</h2>
             {{ basket.ds_first_name }} {{ basket.ds_last_name }}<br>
             {{ basket.ds_address }} {{ basket.ds_address_2 }}<br>
@@ -34,7 +307,7 @@
             {{ basket.ds_county }}<br>
             {{ basket.ds_country }}
         </div>
-        <div class="col-sm-6" id="billing_address_group">
+        <div class="col-sm-4 col-sm-offset-2 color-white" id="billing_address_group">
             <h2>Billing Address</h2>
             {{ basket.is_first_name }} {{ basket.is_last_name }}<br>
             {{ basket.is_address }} {{ basket.is_address_2 }}<br>
@@ -46,8 +319,8 @@
     </div>
     
     {% if (basket.note) %}
-    <div class="row  basket-summary-note-wrapper">
-        <div class="col-sm-12">
+    <div class="row  basket-summary-note-wrapper center-block">
+        <div class="col-sm-4 col-sm-offset-1 color-white">
             <h2>Note</h2>
             <div>
                 {{ basket.note|nl2br }}
@@ -57,40 +330,60 @@
     </div>    
     {% endif %}
     
-    <div class="basket-product-row-wrapper">
+    <div class="basket-product-row-wrapper color-white">
         <h2>Products</h2>
         {% for productJson in basket.products  %}
-        <div class="row basket-product-row">
-            <div class="col-sm-8 basket-product-row-info">
-                <div class="row">
-                    <div class="col-sm-2">
-                        {% if productJson.product.images|length > 0 %}
-                        <img src="{{ productJson.product.images[0].thumb(55,55) }}" class="cursor-pointer img-responsive" onclick="location.href = '{{ productJson.product.url}}'" >
-                        {% endif %}
+        <!--divider-->
+            <hr class="basket-divider">
+            <div class="row basket-product-row">
+                <div class="col-xs-7 col-xs-offset-1 basket-product-row-info-mobile">
+                    <div class="row product-row">
+
+                        <!--Product Image-->
+                        <div class="col-xs-2 product-img-div">
+                            {% if productJson.product.images|length > 0 %}
+                            <img src="{{ productJson.product.images[0].thumb(65,65) }}" class="cursor-pointer img-responsive product-image" onclick="location.href = '{{ productJson.product.url}}'" >
+                            {% endif %}
+                        </div>
+
+                        <!--Product Title-->
+                        <div class="col-xs-6 product-name-div">
+                            <a class="cursor-pointer product-name" onclick="location.href = '{{ productJson.product.url}}'">{{ productJson.product.title }}</a>
+                            <div>{{productJson.options_text}} <br/><a class="price-per-unit">{{ jkshopSetting.getPriceFormatted(productJson.price+productJson.current_discount) }}/ pc</a> </div>
+                        </div>
+                        <div class="clearfix"></div>
                     </div>
-                    <div class="col-sm-10">
-                        <a class="cursor-pointer" onclick="location.href = '{{ productJson.product.url}}'">{{ productJson.product.title }}</a>
-                        <div>{{productJson.options_text}}</div>
-                    </div>
-                    <div class="clearfix"></div>
+                    
                 </div>
-                
+
+                <!--Right Side-->
+                <div class="panels-right">
+                    <!-- Product Quantity +/- -->
+                    <div class="col-xs-2 basket-product-row-qty product-quantity-div">
+                        <strong>x{{ productJson.basket_quantity }} &nbsp;</strong>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default" data-request-data="key: '{{key}}', id: {{ productJson.product.id }}, qty_operation: -1" data-request="onBasketProductChangeQunatity"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
+                            <button type="button" class="btn btn-default" data-request-data="key: '{{key}}', id: {{ productJson.product.id }}, qty_operation: 1" data-request="onBasketProductChangeQunatity"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+                        </div>
+                    </div>
+
+                    <!--Total Price/delete button-->
+                    <div class="col-xs-3 basket-product-row-price product-total-delete-div">
+                        
+                        {% if productJson.current_discount > 0 %}
+                            (-{{ jkshopSetting.getPriceFormatted(productJson.current_discount) }}/ pc)
+                            &nbsp;&nbsp; 
+                        {% endif %}
+                        <strong>{{ jkshopSetting.getPriceFormatted(productJson.total_price)  }}</strong>
+
+                        <button type="button" class="btn product-delete" data-request-data="key: '{{key}}', id: {{ productJson.product.id }}, qty_operation: -999999" data-request="onBasketProductChangeQunatity"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                    </div>
+                </div>
+
             </div>
-            <div class="col-sm-1 basket-product-row-qty">
-                <strong>{{ productJson.basket_quantity }} &nbsp;</strong>
-            </div>
-            <div class="col-sm-3 basket-product-row-price">
-                {{ jkshopSetting.getPriceFormatted(productJson.price+productJson.current_discount) }}/ pc 
-                &nbsp;&nbsp; 
-                {% if productJson.current_discount > 0 %}
-                    (-{{ jkshopSetting.getPriceFormatted(productJson.current_discount) }}/ pc )
-                    &nbsp;&nbsp; 
-                {% endif %}
-                
-                <strong>{{ jkshopSetting.getPriceFormatted(productJson.total_price)  }}</strong>
-            </div>
-        </div>
-        {% endfor  %}
+            {% endfor  %}
+            <!--divider-->
+            <hr class="basket-divider">
         
         
         {% if (basket.shipping.getCurrentPrice(basket) > 0)  %}
@@ -122,29 +415,29 @@
         {% endif  %}
         
     </div>
-    <div class="basket-products-total">
+    <div class="basket-products-total color-white">
         {% if basket.total_global_discount > 0 %}
             <div class="row">
-                <div class="col-sm-2 col-sm-offset-8">Discount</div>
-                <div class="col-sm-2">-{{ jkshopSetting.getPriceFormatted(basket.total_global_discount) }}</div>
+                <div class="col-sm-2 col-sm-offset-9">Discount</div>
+                <div class="col-sm-1">-{{ jkshopSetting.getPriceFormatted(basket.total_global_discount) }}</div>
             </div>
         {% endif %}        
         <div class="row">
-            <div class="col-sm-2 col-sm-offset-8">Total excl. VAT</div>
-            <div class="col-sm-2">{{ basket.total_price_without_tax_with_shipping_formatted }}</div>
-        </div>
-        <div class="row">
-            <div class="col-sm-2 col-sm-offset-8">VAT</div>
-            <div class="col-sm-2">{{ basket.total_tax_with_shipping_formatted }}</div>
-        </div>
-        <div class="row">
-            <div class="col-sm-2 col-sm-offset-8">Total incl. VAT</div>
-            <div class="col-sm-2">{{ basket.total_price_with_shipping_formatted }}</div>
-        </div>
+                <div class="col-sm-2 col-sm-offset-9">Total excl. Tax</div>
+                <div class="col-sm-1">{{ basket.total_price_without_tax_formatted }}</div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2 col-sm-offset-9">Tax</div>
+                <div class="col-sm-1">{{ basket.total_tax_formatted }}</div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2 col-sm-offset-9">Grand Total</div>
+                <div class="col-sm-1 color-gold">{{ basket.total_price_formatted }}</div>
+            </div>
     </div>
     <div class="basket-products-buttons">
-        <button class="btn btn-default btn-back" data-request="onRunBasketAddress"><span class="glyphicon glyphicon-chevron-left"></span> Back</button>
-        <button class="btn btn-primary" data-request="onCompleteOrder">Complete Order <span class="glyphicon glyphicon-chevron-right"></span></button>
+        <button class="btn btn-default btn-back" style="position:relative;" data-request="onRunBasketAddress"><span class="glyphicon glyphicon-chevron-left"></span> Back</button>
+        <button class="btn btn-continue" data-request="onCompleteOrder" style="position:relative;">Complete Order <span class="glyphicon glyphicon-chevron-right"></span></button>
     </div>
 
     {% endif %}

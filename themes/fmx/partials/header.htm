@@ -5,20 +5,18 @@ function onStart(){
 }
 ==
 <!--Nav Header-->
-	<div class="container store-nav-top">
+	<div class="container center-block store-nav-top">
 
 		<div class="row store-nav">
 
-			<div class="col-xs-1">
+			<div class="col-xs-offset-1 col-xs-2 col-sm-2 col-sm-offset-1">
 				<a href="{{ 'home'|page }}" ><img  class="logo-img store-nav-items" src="{{ 'assets/images/fmx-logo-header.png'|theme }}"/></a>
 			</div>
 
 			<!--basket-->
-<<<<<<< HEAD
-			<div class="col-xs-2 col-xs-offset-6">
-=======
-			<div class="col-xs-3 col-xs-offset-5 cold-sm-1 col-sm-offset-7 col-md-1 col-md-offset-7" style="position:relative">
->>>>>>> ca3c99f6854f77aac5b72282021a79d63196122d
+
+			<div class="col-xs-2 col-xs-offset-4 col-sm-1 col-sm-offset-5">
+
 				<a href="{{ 'basket'|page }}">
 					<span class="glyphicon glyphicon-shopping-cart basket-sum" id="jkshop-total-basket">
 						 {{ basket.total_price_formatted }}
@@ -26,7 +24,7 @@ function onStart(){
 				</a>
 			</div>
 			<!--Facebook Login-->
-			<div class="col-xs-1">
+			<div class="col-xs-1 col-sm-1">
 				
 				{% component 'facebookSession::fb-sdk' %}
    				<div class="logo-img store-nav-items">

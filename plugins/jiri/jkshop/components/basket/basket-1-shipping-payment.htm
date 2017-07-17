@@ -1,13 +1,9 @@
 <style>
-<<<<<<< HEAD
+
 .section-header{
     color:white;
 }
-</style>
 
-<div class="basket-content-wrapper" id="basket-content-wrapper">
-    <div class="basket-breadcrumbs" style="position:relative;color:white;">
-=======
 .basket-breadcrumbs{
     position:relative;
 }
@@ -24,28 +20,40 @@
     border:0px;
 }
 
-.btn-back{
+.btn-continue{
     color:#ffdf33;
 }
 
-.btn-back:hover{
+.btn-continue:hover{
    background-color:rgba(0,0,0,0);
    color:#ffdf33; 
 }
 
-.btn-continue, .btn-continue:hover{
+.btn-back, .btn-back:hover{
     color:white;
+    background-color:rgba(0,0,0,0);
+}
+
+
+.color-gold{
+    color:#ffdf33;
 }
 
 </style>
 
 <div class="basket-content-wrapper" id="basket-content-wrapper">
+    <div class="basket-breadcrumbs" style="position:relative;color:white;">
+
+
+
+</style>
+
+<div class="basket-content-wrapper" id="basket-content-wrapper">
     <div class="basket-breadcrumbs color-white">
->>>>>>> ca3c99f6854f77aac5b72282021a79d63196122d
-        <span>1 Cart</span><span class="glyphicon glyphicon-chevron-right"></span>
-        <strong>2 Shipping & Payment</strong><span class="glyphicon glyphicon-chevron-right"></span>
-        <span>3 Address</span><span class="glyphicon glyphicon-chevron-right"></span>
-        <span>4 Summary</span>
+        <span>Cart</span><span class="glyphicon glyphicon-chevron-right"></span>
+        <strong class="color-gold">Shipping & Payment</strong><span class="glyphicon glyphicon-chevron-right"></span>
+        <span>Address</span><span class="glyphicon glyphicon-chevron-right"></span>
+        <span>Summary</span>
     </div>    
     
 {{ form_ajax('onRunBasketAddress') }}
@@ -56,11 +64,9 @@
     {% else %}
     <div class="row basket-shipping-payment-wrapper">
         <div class="col-sm-6 basket-shipping-wrapper">
-<<<<<<< HEAD
+
             <h2 class="section-header">Select Shipping Option</h2>
-=======
-            <h2 class="color-white">Select Shipping Option</h2>
->>>>>>> ca3c99f6854f77aac5b72282021a79d63196122d
+
             <select name="shipping_id">
                 {% for shipping in basket.shipping_options  %}
                 <option value="{{ shipping.id }}">
@@ -70,11 +76,9 @@
             </select>
         </div>
         <div class="col-sm-6 basket-payment-wrapper">
-<<<<<<< HEAD
+
             <h2 class="section-header">Select Payment Option</h2>
-=======
-            <h2 class="color-white">Select Payment Option</h2>
->>>>>>> ca3c99f6854f77aac5b72282021a79d63196122d
+
             {{ form_select("payment_method_id", basket.payment_method_options, basket.payment_method_id) }}
             
         </div>
