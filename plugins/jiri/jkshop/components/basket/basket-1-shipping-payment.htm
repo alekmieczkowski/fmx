@@ -1,4 +1,5 @@
 <style>
+<<<<<<< HEAD
 .section-header{
     color:white;
 }
@@ -6,6 +7,41 @@
 
 <div class="basket-content-wrapper" id="basket-content-wrapper">
     <div class="basket-breadcrumbs" style="position:relative;color:white;">
+=======
+.basket-breadcrumbs{
+    position:relative;
+}
+.basket-products-buttons{
+    position:relative;
+}
+/*headers of select shipping and select payment  forms*/
+.color-white{
+    color:white;
+}
+
+.btn{
+    background-color:rgba(0,0,0,0);
+    border:0px;
+}
+
+.btn-back{
+    color:#ffdf33;
+}
+
+.btn-back:hover{
+   background-color:rgba(0,0,0,0);
+   color:#ffdf33; 
+}
+
+.btn-continue, .btn-continue:hover{
+    color:white;
+}
+
+</style>
+
+<div class="basket-content-wrapper" id="basket-content-wrapper">
+    <div class="basket-breadcrumbs color-white">
+>>>>>>> ca3c99f6854f77aac5b72282021a79d63196122d
         <span>1 Cart</span><span class="glyphicon glyphicon-chevron-right"></span>
         <strong>2 Shipping & Payment</strong><span class="glyphicon glyphicon-chevron-right"></span>
         <span>3 Address</span><span class="glyphicon glyphicon-chevron-right"></span>
@@ -20,7 +56,11 @@
     {% else %}
     <div class="row basket-shipping-payment-wrapper">
         <div class="col-sm-6 basket-shipping-wrapper">
+<<<<<<< HEAD
             <h2 class="section-header">Select Shipping Option</h2>
+=======
+            <h2 class="color-white">Select Shipping Option</h2>
+>>>>>>> ca3c99f6854f77aac5b72282021a79d63196122d
             <select name="shipping_id">
                 {% for shipping in basket.shipping_options  %}
                 <option value="{{ shipping.id }}">
@@ -30,16 +70,20 @@
             </select>
         </div>
         <div class="col-sm-6 basket-payment-wrapper">
+<<<<<<< HEAD
             <h2 class="section-header">Select Payment Option</h2>
+=======
+            <h2 class="color-white">Select Payment Option</h2>
+>>>>>>> ca3c99f6854f77aac5b72282021a79d63196122d
             {{ form_select("payment_method_id", basket.payment_method_options, basket.payment_method_id) }}
             
         </div>
         <div class="clearfix"></div>
     </div>
-
-    <div class="basket-products-buttons">
-        <button class="btn btn-default btn-back" data-request="onRunBasket"><span class="glyphicon glyphicon-chevron-left"></span> Back</button>
-        <button class="btn btn-primary" type="submit">Continue <span class="glyphicon glyphicon-chevron-right"></span></button>
+    <br/>
+    <div class="basket-products-buttons ">
+        <button class="btn btn-default btn-back " data-request="onRunBasket"><span class="glyphicon glyphicon-chevron-left"></span>Back</button>
+        <button class="btn btn-continue" type="submit">Continue <span class="glyphicon glyphicon-chevron-right"></span></button>
     </div>
 
     {% endif %}
